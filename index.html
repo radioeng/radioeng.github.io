@@ -8,8 +8,7 @@ async function Test() {
 
   const device = await navigator.bluetooth.requestDevice({
    filters: [{
-    filters: [{services: [0xFFE0]}],   // list BT devices announcing battery_service
-
+    services: [0xFFE0]}],  
 
   })
 
