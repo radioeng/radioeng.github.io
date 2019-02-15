@@ -1,0 +1,53 @@
+<html>
+<body bgcolor="#000000">
+<script>
+
+async function Test() {
+
+  console.log('Requesting Web BT device...');
+
+  const device = await navigator.bluetooth.requestDevice({
+   filters: [{
+    filters: [{services: [0xFFE0]}],   // list BT devices announcing battery_service
+
+
+  })
+
+  console.log('device',device)  
+ console.log(`Connecting to device's GATT Server...`)
+
+  const server = await device.gatt.connect()
+
+  console.log('server:',server)  
+
+  let service = await server.getPrimaryService('battery_service') 
+
+  console.log('service',service)
+
+  let characteristic = await service.getCharacteristic('battery_level')
+
+  console.log('chs',characteristic)
+
+  let value = await characteristic.readValue()
+
+  console.log('battery level:',value.getUint8(0))
+
+}
+
+window.onload = () => {      
+
+      const button = document.getElementById('but')
+
+      button.addEventListener('pointerup', function(event) {
+
+        Test()
+
+      });
+
+}
+
+</script>
+
+<button id="but">Click!</button>
+</body>
+</html>
