@@ -6,11 +6,11 @@ class BluetoothTerminal {
    * Create preconfigured Bluetooth Terminal instance.
    * @param {!(number|string)} [serviceUuid=0xFFE0] - Service UUID
    * @param {!(number|string)} [characteristicUuid=0xFFE1] - Characteristic UUID
-   * @param {string} [receiveSeparator='\n'] - Receive separator
-   * @param {string} [sendSeparator='\n'] - Send separator
+   * @param {string} [receiveSeparator='\r\n'] - Receive separator
+   * @param {string} [sendSeparator='\r\n'] - Send separator
    */
   constructor(serviceUuid = 0xFFE0, characteristicUuid = 0xFFE1,
-              receiveSeparator = '\n\r', sendSeparator = '\n\r') {
+              receiveSeparator = '\r\n', sendSeparator = '\r\n') {
     // Used private variables.
     this._receiveBuffer = ''; // Buffer containing not separated data.
     this._maxCharacteristicValueLength = 20; // Max characteristic value length.
