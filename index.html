@@ -1,72 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<html>
+<body bgcolor="#000000">
+<script>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="msapplication-TileColor" content="#2196f3">
-    <meta name="msapplication-config" content="browserconfig.xml">
-    <meta name="theme-color" content="#2196f3">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="msapplication-starturl" content="./">
-    <meta name="description"
-          content="Progressive Web Application for serial communication with your own Bluetooth Low Energy (Smart) devices">
+async function Test() {
 
-    <title>Web Bluetooth Terminal</title>
+  console.log('Requesting Web BT device...');
 
-    <link rel="manifest" href="manifest.json">
-    <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
-    <link rel="mask-icon" href="icons/safari-pinned-tab.svg" color="#2196f3">
-    <link rel="shortcut icon" href="icons/favicon.ico">
+  const device = await navigator.bluetooth.requestDevice({
+   filters: [{
+    services: [0xFFE0]}],  
 
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="css/normalize.css" rel="stylesheet">
-    <link href="css/styles.css" rel="stylesheet">
+  })
 
-</head>
-<body>
+  console.log('device',device)  
+ console.log(`Connecting to device's GATT Server...`)
 
-    <div class="app">
+  const server = await device.gatt.connect()
 
-        <div class="toolbar">
+  console.log('server:',server)  
 
-            <div id="device-name" class="name">Terminal</div>
+  let service = await server.getPrimaryService('battery_service') 
 
-            <div class="buttons">
+  console.log('service',service)
 
-                <button id="connect" type="button" aria-label="Connect">
-                    <i class="material-icons">bluetooth_connected</i>
-                </button>
+  let characteristic = await service.getCharacteristic('battery_level')
 
-                <button id="disconnect" type="button" aria-label="Disconnect">
-                    <i class="material-icons">bluetooth_disabled</i>
-                </button>
+  console.log('chs',characteristic)
 
-            </div>
+  let value = await characteristic.readValue()
 
-        </div>
+  console.log('battery level:',value.getUint8(0))
 
-        <div id="terminal" class="terminal"></div>
+}
 
-        <form id="send-form" class="send-form">
+window.onload = () => {      
 
-            <input id="input" type="text" aria-label="Input" autocomplete="off" placeholder="Type something to send...">
+      const button = document.getElementById('but')
 
-            <button type="submit" aria-label="Send">
-                <i class="material-icons">send</i>
-            </button>
+      button.addEventListener('pointerup', function(event) {
 
-        </form>
+        Test()
 
-    </div>
+      });
 
-    <script src="js/BluetoothTerminal.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/companion.js" data-service-worker="sw.js"></script>
+}
 
+</script>
+
+<button id="but">Click!</button>
 </body>
 </html>
