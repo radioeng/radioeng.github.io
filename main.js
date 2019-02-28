@@ -177,7 +177,7 @@ function send(data) {
     return;
   }
 
-  data += '\n';
+  data += '\r';
 
   if (data.length > 20) {
     let chunks = data.match(/(.|[\r\n]){1,20}/g);
