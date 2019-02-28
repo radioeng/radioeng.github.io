@@ -2,7 +2,7 @@
 let connectButton = document.getElementById('connect');
 let disconnectButton = document.getElementById('disconnect');
 let pingButton = document.getElementById('ping');
-let terminalContainer = document.getElementById('ping-print');
+let terminalContainer = document.getElementById('terminal');
 let PingContainer = document.getElementById('ping-print');
 let sendForm = document.getElementById('send-form');
 let inputField = document.getElementById('input');
@@ -19,6 +19,8 @@ disconnectButton.addEventListener('click', function() {
 
 pingButton.addEventListener('click', function () {
 	send('ping');
+	PingContainer.insertAdjacentHTML('beforeend',
+      '<p>TEXT</p>');	
 });
 
 setInterval(printTime, 1000);
