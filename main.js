@@ -172,7 +172,7 @@ function handleCharacteristicValueChanged(event) {
       if (data) {
         receive(data);
 		if(data.indexOf('PING=') + 1) {
-				PingContainer.insertAdjacentHTML('beforeend', data.substr(5) + ' ms\n');
+				PingContainer.innerHTML = data.substr(5) + ' ms\n';
 		}
       }
     }
