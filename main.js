@@ -19,6 +19,7 @@ disconnectButton.addEventListener('click', function() {
 
 pingButton.addEventListener('click', function () {
 	send('ping');
+	terminalContainer.innerHTML = 'Привет';	
 });
 
 
@@ -171,11 +172,6 @@ function handleCharacteristicValueChanged(event) {
 
       if (data) {
         receive(data);
-		for (let ch of data) {
-			if (ch == 'PING=') {
-				PingContainer.insertAdjacentHTML('beforeend', data + 'ms\n');
-			}
-		}
       }
     }
     else {
