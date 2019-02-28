@@ -19,11 +19,19 @@ disconnectButton.addEventListener('click', function() {
 
 pingButton.addEventListener('click', function () {
 	send('ping');
-	PingContainer.insertAdjacentHTML('beforeend',
+	PingContainer.innerHTML('beforeend',
       '<p>TEXT</p>');	
 });
 
 
+
+function printTime() {
+	let d = new Date();
+	let hours = d.getHours();
+	let mins = d.getMinutes();
+	let secs = d.getSeconds();
+	PingContainer.innerHTML = hours+":"+mins+":"+secs;
+}
 // Обработка события отправки формы
 sendForm.addEventListener('submit', function(event) {
   event.preventDefault(); // Предотвратить отправку формы
