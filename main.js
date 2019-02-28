@@ -177,10 +177,10 @@ function send(data) {
     return;
   }
 
-  data += '\r';
+  data += '\n';
 
   if (data.length > 20) {
-    let chunks = data.match(/(.|[\r]){1,20}/g);
+    let chunks = data.match(/(.|[\r\n]){1,20}/g);
 
     writeToCharacteristic(characteristicCache, chunks[0]);
 
