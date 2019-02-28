@@ -1,6 +1,7 @@
 // Получение ссылок на элементы UI
 let connectButton = document.getElementById('connect');
 let disconnectButton = document.getElementById('disconnect');
+let pingButton = document.getElementById('ping');
 let terminalContainer = document.getElementById('terminal');
 let sendForm = document.getElementById('send-form');
 let inputField = document.getElementById('input');
@@ -13,6 +14,10 @@ connectButton.addEventListener('click', function() {
 // Отключение от устройства при нажатии на кнопку Disconnect
 disconnectButton.addEventListener('click', function() {
   disconnect();
+});
+
+pingButton.addEventListener('click', function () {
+	send('ping');
 });
 
 // Обработка события отправки формы
