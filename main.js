@@ -3,6 +3,7 @@ let connectButton = document.getElementById('connect');
 let disconnectButton = document.getElementById('disconnect');
 let pingButton = document.getElementById('ping');
 let terminalContainer = document.getElementById('terminal');
+let PingContainer = document.getElementById('ping-print');
 let sendForm = document.getElementById('send-form');
 let inputField = document.getElementById('input');
 
@@ -27,7 +28,7 @@ function printTime() {
 	let hours = d.getHours();
 	let mins = d.getMinutes();
 	let secs = d.getSeconds();
-	pingButton.innerHTML = hours+":"+mins+":"+secs;
+	PingContainer.innerHTML = hours+":"+mins+":"+secs;
 }
 // Обработка события отправки формы
 sendForm.addEventListener('submit', function(event) {
