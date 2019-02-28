@@ -96,16 +96,6 @@ function connectDeviceAndCacheCharacteristic(device) {
       });
 }
 
-// Включение получения уведомлений об изменении характеристики
-function startNotifications(characteristic) {
-  log('Starting notifications...');
-
-  return characteristic.startNotifications().
-      then(() => {
-        log('Notifications started');
-      });
-}
-
 // Вывод в терминал
 function log(data, type = '') {
   terminalContainer.insertAdjacentHTML('beforeend',
