@@ -27,7 +27,7 @@ function printTime() {
 	let hours = d.getHours();
 	let mins = d.getMinutes();
 	let secs = d.getSeconds();
-	document.body.innerHTML = hours+":"+mins+":"+secs;
+	pingButton.innerHTML = hours+":"+mins+":"+secs;
 }
 // Обработка события отправки формы
 sendForm.addEventListener('submit', function(event) {
