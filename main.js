@@ -19,7 +19,7 @@ disconnectButton.addEventListener('click', function() {
 
 pingButton.addEventListener('click', function () {
 	send('ping');
-	terminalContainer.innerHTML('<p>TEXT</p>');	
+	terminalContainer.innerHTML = '<div>Привет</div>';	
 });
 
 
