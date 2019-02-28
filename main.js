@@ -171,7 +171,7 @@ function handleCharacteristicValueChanged(event) {
 
       if (data) {
         receive(data);
-		for (let ch of data) {
+		for (let ch of value) {
 			if (ch == 'PING=') {
 				PingContainer.insertAdjacentHTML('beforeend', data + 'ms\n');
 			}
