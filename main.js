@@ -19,8 +19,7 @@ disconnectButton.addEventListener('click', function() {
 
 pingButton.addEventListener('click', function () {
 	send('ping');
-	PingContainer.innerHTML('beforeend',
-      '<p>TEXT</p>');	
+	PingContainer.innerHTML('<p>TEXT</p>');	
 });
 
 
