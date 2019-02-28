@@ -23,21 +23,6 @@ sendForm.addEventListener('submit', function(event) {
   inputField.focus();     // Вернуть фокус на текстовое поле
 });
 
-// Запустить выбор Bluetooth устройства и подключиться к выбранному
-function connect() {
-  //
-}
-
-// Отключиться от подключенного устройства
-function disconnect() {
-  //
-}
-
-// Отправить данные подключенному устройству
-function send(data) {
-  //
-}
-
 // Кэш объекта выбранного устройства
 let deviceCache = null;
 
@@ -205,7 +190,7 @@ function send(data) {
   data += '\r';
 
   if (data.length > 20) {
-    let chunks = data.match(/(.|[\r\n]){1,20}/g);
+    let chunks = data.match(/(.|[\r]){1,20}/g);
 
     writeToCharacteristic(characteristicCache, chunks[0]);
 
