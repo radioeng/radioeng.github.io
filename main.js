@@ -196,3 +196,8 @@ function send(data) {
 
   log(data, 'out');
 }
+
+// Записать значение в характеристику
+function writeToCharacteristic(characteristic, data) {
+  characteristic.writeValue(new TextEncoder().encode(data));
+}
