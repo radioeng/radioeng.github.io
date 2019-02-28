@@ -20,7 +20,7 @@ pingButton.addEventListener('click', function () {
 	send('ping');
 });
 
-pingButton.setInterval(printTime, 1000);
+setInterval(printTime, 1000);
 
 function printTime() {
 	let d = new Date();
