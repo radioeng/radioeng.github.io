@@ -31,7 +31,7 @@ function validate() {
 			if(frx.value >= 240.0 && frx.value <= 280.0) {
 				send('set -ftx ' + ftx.value); 
 				
-				setTimeout("send('set -frx ' + frx.value)", 200); 
+				setTimeout(function() {send('set -frx ' + frx.value)}, 200); 
 				//alert("Ok");
 				//return true;
 			}
