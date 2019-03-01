@@ -8,6 +8,8 @@ let sendForm = document.getElementById('send-form');
 let inputField = document.getElementById('input');
 
 let frequencyForm = document.getElementById("send-frequency");
+let ftx = document.getElementById("ftx");
+let frx = document.getElementById("frx");
 // Подключение к устройству при нажатии на кнопку Connect
 connectButton.addEventListener('click', function() {
   connect();
@@ -23,8 +25,6 @@ pingButton.addEventListener('click', function () {
 });
 
 function validate() {
-	let ftx = document.getElementById("ftx");
-	let frx = document.getElementById("frx");
 	if(ftx.value != "" && frx.value != "")
 	{
 		if(ftx.value >= 290.0 && ftx.value <= 320.0) {
@@ -50,6 +50,9 @@ function validate() {
 frequencyForm.addEventListener('submit', function(event) {
   //event.preventDefault(); // Предотвратить отправку формы
   validate();
+  ftx.value = '';  // Обнулить текстовое поле
+  frx.value = '';  // Обнулить текстовое поле
+  ftx.focus();     // Вернуть фокус на текстовое поле
 
 });
 
