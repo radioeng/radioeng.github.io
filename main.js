@@ -7,6 +7,7 @@ let PingContainer = document.getElementById('ping-print');
 let sendForm = document.getElementById('send-form');
 let inputField = document.getElementById('input');
 
+let frequencyForm = document.getElementById("send-frequency");
 // Подключение к устройству при нажатии на кнопку Connect
 connectButton.addEventListener('click', function() {
   connect();
@@ -19,17 +20,38 @@ disconnectButton.addEventListener('click', function() {
 
 pingButton.addEventListener('click', function () {
 	send('ping');
+	PingContainer.innerHTML = 'Привет';
 });
 
-
-
-function printTime() {
-	let d = new Date();
-	let hours = d.getHours();
-	let mins = d.getMinutes();
-	let secs = d.getSeconds();
-	PingContainer.innerHTML = hours+":"+mins+":"+secs;
+function validate() {
+	let ftx = document.getElementById("ftx");
+	let frx = document.getElementById("frx");
+	if(ftx.value != "" && frx.value != "")
+	{
+		if(ftx.value >= 290.0 && ftx.value <= 320.0) {
+			if(frx.value >= 240.0 && frx.value <= 280.0) {
+				send("set -ftx" + ftx.value); 
+				send("set -frx" + frx.value); 
+				return true;
+			}
+			else {
+				alert("Frequency Rx must be 240..280 MHz");
+			return false; }
+		}
+		else {
+			alert("Frequency Tx must be 280..320 MHz");
+		return false; }
+	}
+	alert("The values should be equal and not blank");
 }
+
+// Обработка события отправки формы
+frequencyForm.addEventListener('submit', function(event) {
+  event.preventDefault(); // Предотвратить отправку формы
+  validate();
+
+});
+
 // Обработка события отправки формы
 sendForm.addEventListener('submit', function(event) {
   event.preventDefault(); // Предотвратить отправку формы
@@ -171,9 +193,6 @@ function handleCharacteristicValueChanged(event) {
 
       if (data) {
         receive(data);
-		if(data.indexOf('PING=') + 1) {
-				PingContainer.innerHTML = data.substr(5) + ' ms\n';
-		}
       }
     }
     else {
