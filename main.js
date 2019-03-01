@@ -32,18 +32,20 @@ function validate() {
 				send('set -ftx ' + ftx.value); 
 				
 				setTimeout(send('set -frx ' + frx.value), 200); 
-				alert("Ok");
-				return true;
+				//alert("Ok");
+				//return true;
 			}
 			else {
 				alert("Frequency Rx must be 240..280 MHz");
-			return false; }
+			//return false; 
+			}
 		}
 		else {
 			alert("Frequency Tx must be 280..320 MHz");
-		return false; }
+		//return false; 
+		}
 	}
-	alert("The values should be equal and not blank");
+	else alert("The values should be equal and not blank");
 }
 
 // Обработка события отправки формы
