@@ -50,7 +50,7 @@ function validate() {
 
 // Обработка события отправки формы
 frequencyForm.addEventListener('submit', function(event) {
-  //event.preventDefault(); // Предотвратить отправку формы
+  event.preventDefault(); // Предотвратить отправку формы
   validate();
   ftx.value = '';  // Обнулить текстовое поле
   frx.value = '';  // Обнулить текстовое поле
