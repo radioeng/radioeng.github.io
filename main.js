@@ -20,7 +20,6 @@ disconnectButton.addEventListener('click', function() {
 
 pingButton.addEventListener('click', function () {
 	send('ping');
-	PingContainer.innerHTML = 'Привет';
 });
 
 function validate() {
@@ -30,8 +29,9 @@ function validate() {
 	{
 		if(ftx.value >= 290.0 && ftx.value <= 320.0) {
 			if(frx.value >= 240.0 && frx.value <= 280.0) {
-				send("set -ftx" + ftx.value); 
-				send("set -frx" + frx.value); 
+				send("set -ftx " + ftx.value); 
+				send("set -frx " + frx.value); 
+				alert("Ok");
 				return true;
 			}
 			else {
@@ -47,7 +47,7 @@ function validate() {
 
 // Обработка события отправки формы
 frequencyForm.addEventListener('submit', function(event) {
-  event.preventDefault(); // Предотвратить отправку формы
+  //event.preventDefault(); // Предотвратить отправку формы
   validate();
 
 });
