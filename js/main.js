@@ -7,6 +7,7 @@ const sendForm = document.getElementById('send-form');
 const inputField = document.getElementById('input');
 const settingButton = document.getElementById('settings');
 const pingButton = document.getElementById('ping');
+const pingField = document.getElementById('ping-field');
 
 // Helpers.
 const defaultDeviceName = 'Terminal';
@@ -39,7 +40,7 @@ terminal.receive = function(data) {
 	var result = data.match(regex);
 	if(result[1] != false)
 	{
-		alert(result[1]);
+		pingField.value = result[1] + 'ms';
 	}
 	else
 	{
