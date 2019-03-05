@@ -39,7 +39,7 @@ terminal.receive = function(data) {
 	var regex = /PING=(\d{1,10})/;
 	var result = data.match(regex);
 	
-	if(result[1] == true)
+	if(result[1] != '')
 	{
 		pingField.value = result[1] + 'ms';
 	}
