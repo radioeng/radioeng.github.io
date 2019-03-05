@@ -45,7 +45,8 @@ terminal.receive = function(data) {
 		pingField.value = result[2] + ' ms';
 		logToTerminal(data, 'in');
 	}
-	else{
+	else
+	{
 		logToTerminal(data, 'in');
 	}
 };
