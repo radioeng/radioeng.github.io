@@ -43,10 +43,11 @@ terminal.receive = function(data) {
 	if(result[1] != '')
 	{
 		pingField.value = result[1] + ' ms';
+		return;
 	}
-	else
-	{	logToTerminal(data, 'in');
-	}
+
+		logToTerminal(data, 'in');
+
 };
 
 // Override default log method to output messages to the terminal and console.
