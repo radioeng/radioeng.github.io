@@ -391,7 +391,7 @@ class BluetoothTerminal {
    * @private
    */
   static _splitByLength(string, length) {
-    return string.match(new RegExp('(.|[\r\n]){1,' + length + '}', 'g'));
+    return string.match(new RegExp('(.|[\r]){1,' + length + '}', 'g'));
   }
 }
 
