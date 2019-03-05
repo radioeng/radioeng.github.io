@@ -35,7 +35,16 @@ const terminal = new BluetoothTerminal();
 
 // Override `receive` method to log incoming data to the terminal.
 terminal.receive = function(data) {
-  logToTerminal(data, 'in');
+	var regex = /PING=(\d{1,10})/g;
+	var result = data.match(regex);
+	if(result != false)
+	{
+		alert(result);
+	}
+	else
+	{
+	logToTerminal(data, 'in');
+	} 
 };
 
 // Override default log method to output messages to the terminal and console.
