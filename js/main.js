@@ -38,14 +38,14 @@ const terminal = new BluetoothTerminal();
 terminal.receive = function(data) {
 var regex = /PING=(\d+(\.\d{3})?)/;
 	var result = data.match(regex);
-	
+	logToTerminal(data, 'in');
 	if(result[1] !== '')
 	{
 		pingField.value = result[1] + ' ms';
 		return;
 	}
 
-		logToTerminal(data, 'in');
+		
 
 };
 
