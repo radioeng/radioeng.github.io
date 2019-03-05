@@ -35,11 +35,11 @@ const terminal = new BluetoothTerminal();
 
 // Override `receive` method to log incoming data to the terminal.
 terminal.receive = function(data) {
-	var regex = /PING=(\d{1,10})/g;
+	var regex = /PING=(\d{1,10})/;
 	var result = data.match(regex);
-	if(result != false)
+	if(result[1] != false)
 	{
-		alert(result);
+		alert(result[1]);
 	}
 	else
 	{
