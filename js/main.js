@@ -38,7 +38,8 @@ const terminal = new BluetoothTerminal();
 terminal.receive = function(data) {
 	var regex = /PING=(\d{1,10})/;
 	var result = data.match(regex);
-	if(result[1] != false)
+	
+	if(result[1] == true)
 	{
 		pingField.value = result[1] + 'ms';
 	}
