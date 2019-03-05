@@ -39,12 +39,12 @@ terminal.receive = function(data) {
 	var regex = /PING=(\d+(\.\d{3})?)/;
 	var result = data.match(regex);
 	
-	if(result[0] == 'PING=')
+	if(result[0] === 'PING=')
 	{
 		pingField.value = result[1] + ' ms';
 		return;
 	}
-	logToTerminal(data, 'in');
+	logToTerminal(result[0], 'in');
 		
 
 };
