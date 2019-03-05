@@ -39,17 +39,15 @@ terminal.receive = function(data) {
 	var regex = /^[$]([A-Z]+)[=](\d+(\.\d{1,3})?)/;
 	let result = data.match(regex);
 	
-	logToTerminal(data, 'in');
-	
+		
 	if(result[1] === 'PING')
 	{
 		pingField.value = result[2] + ' ms';
 		result = null;
-		return;
 	}
-
+	else{
 		logToTerminal(data, 'in');
-
+	}
 };
 
 // Override default log method to output messages to the terminal and console.
