@@ -39,7 +39,7 @@ terminal.receive = function(data) {
 	var regex = /^[$]([A-Z]+)[=](\d+(\.\d{1,3})?)/;
 	let result = data.match(regex);
 	
-	if(result[1] == 'PING')
+	if(result[1] === 'PING')
 	{
 		pingField.value = result[2] + ' ms';
 		result = null;
