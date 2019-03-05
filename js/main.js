@@ -43,7 +43,7 @@ terminal.receive = function(data) {
 	if(result[1] === 'PING')
 	{
 		pingField.value = result[2] + ' ms';
-		result = null;
+		logToTerminal(data, 'in');
 	}
 	else{
 		logToTerminal(data, 'in');
