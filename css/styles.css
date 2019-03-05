@@ -1,0 +1,118 @@
+*:focus {
+  outline: none; }
+
+html, body, .app {
+  height: 100%;
+  max-height: 100%;
+  min-height: 100%; }
+
+body {
+  color: rgba(0, 0, 0, 0.87);
+  font-family: 'Roboto Mono', monospace;
+  font-size: 16px;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
+
+.app {
+  display: flex;
+  flex-direction: column; }
+
+.material-buttons {
+  background: none;
+  border: none;
+  color: rgba(0, 0, 0, 0.87);
+  cursor: pointer;
+  margin: 0;
+  padding: 12px;
+  transition: background 0.3s, color 0.3s;
+  user-select: none; }
+  .material-buttons:active {
+    background: rgba(0, 0, 0, 0.12);
+    color: rgba(0, 0, 0, 0.54); }
+  .material-buttons i.material-icons {
+    vertical-align: middle; }
+
+.toolbar {
+ border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  border-width: 1px 0;
+  align-items: center;
+  display: flex;
+  flex-shrink: 0; }
+  .toolbar .name {
+    flex-grow: 1;
+    padding: 0 8px;
+    user-select: none; }
+  .toolbar button {
+    flex-shrink: 0; }
+    .toolbar button {
+      float: left; }
+
+#window{
+	width: 275px;
+	height: 570px; 
+	margin:40px auto; 
+	background: gainsboro; 
+	border: 1px solid #fff; 
+	border-radius: 15px;
+	z-index: 150;
+	display: none;}
+h3{
+	border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+	border-width: 1px 0;
+	padding-bottom: 5px;	
+	text-align: center;
+	color: #000;
+	font: normal 12px/1.0 'Roboto Mono', monospace;}		
+.form{	
+	width: 250px;
+	margin: 0px auto 0px auto;
+	font: normal 12px/1.0 'Roboto Mono', monospace;}
+
+.field{
+	clear: both;
+	text-align: right;
+	padding: 2px;}
+label{
+	float:left;
+	color: #000;}
+.input{
+	width: 65px;
+	padding: 2px;}
+.input-short{
+	width: 47px; 
+	padding: 2px;}	
+.input-button{
+ text-align:center;
+ margin-top: 25px;
+ margin-bottom: 10px;}
+	  
+.terminal { 
+  flex-grow: 1;
+  overflow: auto;
+  padding: 4px 0; }
+  .terminal div {
+    color: #9E9E9E;    
+    padding: 4px 8px;
+    word-break: break-word; }
+    .terminal div.out {
+      color: #F44336; }
+    .terminal div.in {
+      color: #2196F3; }
+	  
+
+	  	  
+.send-form {
+	border-top: 1px solid rgba(0, 0, 0, 0.12);
+  border-width: 1px 0;
+  display: flex;
+  flex-shrink: 0; }
+  .send-form input {
+    background: none;
+    border: none;
+    color: rgba(0, 0, 0, 0.87);
+    flex-grow: 1;
+    font: normal 16px/1.5 'Roboto Mono', monospace;
+    padding: 0 8px; }
+    .send-form input::placeholder {
+      color: rgba(0, 0, 0, 0.54); }
+  .send-form button {
+    flex-shrink: 0; }
