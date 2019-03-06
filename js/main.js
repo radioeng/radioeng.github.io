@@ -48,11 +48,11 @@ terminal.receive = function(data) {
 				break;
 				
 			case 'FTX':
-				document.getElementById('freqTx').placeholder = result[2];
+				document.getElementById('freqTx').value = result[2];
 				break;
 			
 			case 'FRX':
-				document.getElementById('freqRx').placeholder = result[2];
+				document.getElementById('freqRx').value = result[2];
 				break;
 			
 			default:
@@ -113,7 +113,7 @@ pingButton.addEventListener('click', function () {
 });
 
 applyButton.addEventListener('click', function () {
-	send('SETING');
+	send('SETTING');
 });
 
 
