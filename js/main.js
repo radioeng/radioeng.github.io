@@ -157,7 +157,6 @@ settingButton.addEventListener('click', () => {
 	if(settingWindow.style.display == 'none' || settingWindow.style.display == '')
 	{
 		settingWindow.style.display = 'block';
-		send('SETTING');
 	}
 	else
 	{
@@ -167,6 +166,10 @@ settingButton.addEventListener('click', () => {
 
 pingButton.addEventListener('click', function () {
 	send('ping');
+});
+
+applyButton.addEventListener('click', function () {
+	send('SETTING');
 });
 
 
