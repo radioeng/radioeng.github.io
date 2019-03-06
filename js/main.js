@@ -89,7 +89,7 @@ terminal.receive = function(data) {
 				let sel  = document.getElementById('ifFilter');
 				let opts =  sel.options;
 				for(let opt, j = 0; opt = opts[j]; j++) {
-					if(opt.value == result[2].match(/\d+\,\d/)) {
+					if(opt.value + '00' == result[2]) {
 						opt.selected = true;
 						break; 
 					}
