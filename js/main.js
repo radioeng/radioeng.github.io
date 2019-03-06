@@ -86,11 +86,11 @@ terminal.receive = function(data) {
 				break;
 				
 			case 'FIL':
-				sel  = document.getElementById('ifFilter');
-				opts =  sel.options;
-				for(let opt, j = 0; opt = opts[j]; j++) {
-					if(opt.value + '00' == result[2]) {
-						opt.selected = true;
+				let selt  = document.getElementById('ifFilter');
+				let optst =  selt.options;
+				for(let optt, jt = 0; optt = optst[jt]; jt++) {
+					if(optt.value + '00' == result[2]) {
+						optt.selected = true;
 						break; 
 					}
 				}
@@ -157,6 +157,7 @@ settingButton.addEventListener('click', () => {
 	if(settingWindow.style.display == 'none' || settingWindow.style.display == '')
 	{
 		settingWindow.style.display = 'block';
+		send('SETTING');
 	}
 	else
 	{
@@ -168,9 +169,7 @@ pingButton.addEventListener('click', function () {
 	send('ping');
 });
 
-applyButton.addEventListener('click', function () {
-	send('SETTING');
-});
+
 
 
 sendForm.addEventListener('submit', (event) => {
