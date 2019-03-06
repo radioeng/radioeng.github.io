@@ -65,9 +65,9 @@ terminal.receive = function(data) {
 			
 			case 'CRC':
 				if(result[2] === 'true')
-					document.getElementById('dataRate').checked = true;
+					document.getElementById('crc').checked = true;
 				else if(result[2] === 'false')
-					document.getElementById('dataRate').checked = false;
+					document.getElementById('crc').checked = false;
 				break;
 				
 			default:
