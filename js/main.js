@@ -84,8 +84,17 @@ terminal.receive = function(data) {
 			case 'PTH':
 				document.getElementById('preambleTrashold').placeholder = result[2];
 				break;
-			
-
+				
+			case 'FIL':
+				let selt  = document.getElementById('ifFilter');
+				let optst =  selt.options;
+				for(let optt, jt = 0; optt = optst[jt]; jt++) {
+					if(optt.value + '00' == result[2]) {
+						optt.selected = true;
+						break; 
+					}
+				}
+				break;
 				
 			case 'DEV':
 				document.getElementById('freqDev').placeholder = result[2];
