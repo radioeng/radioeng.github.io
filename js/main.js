@@ -59,6 +59,17 @@ terminal.receive = function(data) {
 				document.getElementById('freqDev').value = result[2];
 				break;
 			
+			case 'DR':
+				document.getElementById('dataRate').value = result[2];
+				break;
+			
+			case 'CRC':
+				if(result[2] === 'true')
+					document.getElementById('dataRate').checked = true;
+				else if(result[2] === 'false')
+					document.getElementById('dataRate').checked = false;
+				break;
+				
 			default:
 				break;
 		}
