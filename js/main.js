@@ -7,6 +7,7 @@ const sendForm = document.getElementById('send-form');
 const inputField = document.getElementById('input');
 const settingButton = document.getElementById('settings');
 const pingButton = document.getElementById('ping');
+const applyButton = document.getElementById('Apply');
 
 // Helpers.
 const defaultDeviceName = 'Terminal';
@@ -55,7 +56,6 @@ terminal.receive = function(data) {
 				break;
 			
 			default:
-				alert('ERROR');
 				break;
 		}
 	}
@@ -101,7 +101,6 @@ settingButton.addEventListener('click', () => {
 	if(settingWindow.style.display == 'none' || settingWindow.style.display == '')
 	{
 		settingWindow.style.display = 'block';
-		send('SETTING');
 	}
 	else
 	{
@@ -111,6 +110,10 @@ settingButton.addEventListener('click', () => {
 
 pingButton.addEventListener('click', function () {
 	send('ping');
+});
+
+applyButton.addEventListener('click', function () {
+	send('SETING');
 });
 
 
