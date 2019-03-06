@@ -36,7 +36,7 @@ const terminal = new BluetoothTerminal();
 
 // Override `receive` method to log incoming data to the terminal.
 terminal.receive = function(data) {
-	var regex = /^[$]([A-Z]+)[=]([^\s]{1,7})/;
+	var regex = /^[$]([A-Z]+)[=]([\+|\-]?\d+(\,\d{1,3})?|[A-Z]{2,4}|true|false)/;
 	let result = data.match(regex);
 	
 	if(result != true)
@@ -45,7 +45,6 @@ terminal.receive = function(data) {
 		{
 			case 'PING':
 				document.getElementById('ping-field').placeholder = result[2] + ' ms';
-				document.getElementById('freqTx').value = result[2];
 				break;
 				
 			case 'FTX':
@@ -54,6 +53,10 @@ terminal.receive = function(data) {
 			
 			case 'FRX':
 				document.getElementById('freqRx').value = result[2];
+				break;
+			
+			case 'DEV':
+				document.getElementById('freqDev').value = result[2];
 				break;
 			
 			default:
