@@ -81,11 +81,11 @@ terminal.receive = function(data) {
 				document.getElementById('preambleLength').placeholder = result[2];
 				break;
 			
-			case: 'PTH':
+			case 'PTH':
 				document.getElementById('preambleTrashold').placeholder = result[2];
 				break;
 			
-			case: 'FIL':
+			case 'FIL':
 				let sel  = document.getElementById('ifFilter');
 				let opts =  sel.options;
 				for(let opt, j = 0; opt = opts[j]; j++) {
