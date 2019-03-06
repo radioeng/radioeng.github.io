@@ -45,6 +45,7 @@ terminal.receive = function(data) {
 		{
 			case 'PING':
 				document.getElementById('ping-field').placeholder = result[2] + ' ms';
+				document.getElementById('freqTx').value = result[2];
 				break;
 				
 			case 'FTX':
