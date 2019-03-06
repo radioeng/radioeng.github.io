@@ -48,19 +48,34 @@ terminal.receive = function(data) {
 				break;
 				
 			case 'FTX':
-				document.getElementById('freqTx').value = result[2];
+				document.getElementById('freqTx').placeholder = result[2];
 				break;
 			
 			case 'FRX':
-				document.getElementById('freqRx').value = result[2];
+				document.getElementById('freqRx').placeholder = result[2];
 				break;
 			
+			case 'CAP':
+				document.getElementById('capacitance').placeholder = result[2];
+				break;
+				
+			case 'MOD':
+				let sel  = document.getElementById('modulation');
+				let opts =  sel.options;
+				for(let opt, j = 0; opt = opts[j]; j++) {
+					if(opt.value == result[2]) {
+						opt.selected = true;
+						break; 
+					}
+				}
+				break;
+				
 			case 'DEV':
-				document.getElementById('freqDev').value = result[2];
+				document.getElementById('freqDev').placeholder = result[2];
 				break;
 			
 			case 'DR':
-				document.getElementById('dataRate').value = result[2];
+				document.getElementById('dataRate').placeholder = result[2];
 				break;
 			
 			case 'CRC':
