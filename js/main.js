@@ -70,6 +70,32 @@ terminal.receive = function(data) {
 				}
 				break;
 				
+			case 'MCH':
+				if(result[2] === 'true')
+					document.getElementById('manchester').checked = true;
+				else if(result[2] === 'false')
+					document.getElementById('manchester').checked = false;
+				break;
+				
+			case 'PRL':
+				document.getElementById('preambleLength').placeholder = result[2];
+				break;
+			
+			case: 'PTH':
+				document.getElementById('preambleTrashold').placeholder = result[2];
+				break;
+			
+			case: 'FIL':
+				let sel  = document.getElementById('ifFilter');
+				let opts =  sel.options;
+				for(let opt, j = 0; opt = opts[j]; j++) {
+					if(opt.value == result[2].match(/\d+\,\d/)) {
+						opt.selected = true;
+						break; 
+					}
+				}
+				break;
+				
 			case 'DEV':
 				document.getElementById('freqDev').placeholder = result[2];
 				break;
@@ -131,6 +157,7 @@ settingButton.addEventListener('click', () => {
 	if(settingWindow.style.display == 'none' || settingWindow.style.display == '')
 	{
 		settingWindow.style.display = 'block';
+		send('SETTING');
 	}
 	else
 	{
@@ -140,10 +167,6 @@ settingButton.addEventListener('click', () => {
 
 pingButton.addEventListener('click', function () {
 	send('ping');
-});
-
-applyButton.addEventListener('click', function () {
-	send('SETTING');
 });
 
 
