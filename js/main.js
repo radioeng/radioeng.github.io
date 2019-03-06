@@ -7,7 +7,6 @@ const sendForm = document.getElementById('send-form');
 const inputField = document.getElementById('input');
 const settingButton = document.getElementById('settings');
 const pingButton = document.getElementById('ping');
-const pingField = document.getElementById('ping-field');
 
 // Helpers.
 const defaultDeviceName = 'Terminal';
@@ -36,14 +35,28 @@ const terminal = new BluetoothTerminal();
 
 // Override `receive` method to log incoming data to the terminal.
 terminal.receive = function(data) {
-	var regex = /^[$]([A-Z]+)[=](\d+(\.\d{1,3})?)/;
+	var regex = /^[$]([A-Z]+)[=]([^\s]{1,7})/;
 	let result = data.match(regex);
 	
-	if(result != null)
+	if(result != true)
 	{		
-		if(result[1] === 'PING')
+		switch(result[1])
 		{
-			pingField.value = result[2] + ' ms';
+			case 'PING':
+				document.getElementById('ping-field').placeholder = result[2] + ' ms';
+				break;
+				
+			case 'FTX':
+				document.getElementById('freqTx').placeholder = result[2];
+				break;
+			
+			case 'FRX':
+				document.getElementById('freqRx').placeholder = result[2];
+				break;
+			
+			default:
+				alert('ERROR');
+				break;
 		}
 	}
 	else
