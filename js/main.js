@@ -44,19 +44,19 @@ terminal.receive = function(data) {
 		switch(result[1])
 		{
 			case 'PING':
-				document.getElementById('ping-field').placeholder = result[2] + ' ms';
+				document.getElementById('ping-field').value = result[2] + ' ms';
 				break;
 				
 			case 'FTX':
-				document.getElementById('freqTx').placeholder = result[2];
+				document.getElementById('freqTx').value = result[2];
 				break;
 			
 			case 'FRX':
-				document.getElementById('freqRx').placeholder = result[2];
+				document.getElementById('freqRx').value = result[2];
 				break;
 			
 			case 'CAP':
-				document.getElementById('capacitance').placeholder = result[2];
+				document.getElementById('capacitance').value = result[2];
 				break;
 				
 			case 'MOD':
@@ -78,30 +78,30 @@ terminal.receive = function(data) {
 				break;
 				
 			case 'PRL':
-				document.getElementById('preambleLength').placeholder = result[2];
+				document.getElementById('preambleLength').value = result[2];
 				break;
 			
 			case 'PTH':
-				document.getElementById('preambleTrashold').placeholder = result[2];
+				document.getElementById('preambleTrashold').value = result[2];
 				break;
 				
 			case 'FIL':
-				let selt  = document.getElementById('ifFilter');
-				let optst =  selt.options;
-				for(let optt, jt = 0; optt = optst[jt]; jt++) {
-					if(optt.value + '00' == result[2]) {
-						optt.selected = true;
+				sel  = document.getElementById('ifFilter');
+				opts =  sel.options;
+				for(let opt, j = 0; opt = opts[j]; j++) {
+					if(opt.value + '00' == result[2]) {
+						opt.selected = true;
 						break; 
 					}
 				}
 				break;
 				
 			case 'DEV':
-				document.getElementById('freqDev').placeholder = result[2];
+				document.getElementById('freqDev').value = result[2];
 				break;
 			
 			case 'DR':
-				document.getElementById('dataRate').placeholder = result[2];
+				document.getElementById('dataRate').value = result[2];
 				break;
 			
 			case 'CRC':
