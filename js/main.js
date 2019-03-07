@@ -164,10 +164,8 @@ disconnectButton.addEventListener('click', () => {
 
 settingButton.addEventListener('click', () => {
 	
-
 		logToTerminal('There is no connected device');
 
-	else {
 		let settingWindow = document.getElementById('window');
 	
 		if(settingWindow.style.display == 'none' || settingWindow.style.display == '')
@@ -179,7 +177,6 @@ settingButton.addEventListener('click', () => {
 		{
 			settingWindow.style.display = 'none';
 		}
-	}
 });
 
 pingButton.addEventListener('click', function () {
