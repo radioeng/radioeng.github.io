@@ -110,6 +110,17 @@ terminal.receive = function(data) {
 				else if(result[2] === 'false')
 					document.getElementById('crc').checked = false;
 				break;
+			
+			case 'HMOD':
+				document.getElementById('modulationIndex').value = result[2];
+				break;
+			
+			case 'AFC':
+				if(result[2] === 'true')
+					document.getElementById('afc').checked = true;
+				else if(result[2] === 'false')
+					document.getElementById('afc').checked = false;
+				break;
 				
 			default:
 				break;
