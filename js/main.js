@@ -164,8 +164,8 @@ disconnectButton.addEventListener('click', () => {
 
 settingButton.addEventListener('click', () => {
 	
-		logToTerminal('There is no connected device');
-
+	if(terminal.getDeviceName())
+	{
 		let settingWindow = document.getElementById('window');
 	
 		if(settingWindow.style.display == 'none' || settingWindow.style.display == '')
@@ -177,6 +177,15 @@ settingButton.addEventListener('click', () => {
 		{
 			settingWindow.style.display = 'none';
 		}
+	}
+	else
+	{
+		terminal.connect().
+			then(() => {
+				deviceNameLabel.textContent = terminal.getDeviceName() ?
+					terminal.getDeviceName() : defaultDeviceName;
+			});
+	}
 });
 
 pingButton.addEventListener('click', function () {
