@@ -180,11 +180,7 @@ settingButton.addEventListener('click', () => {
 	}
 	else
 	{
-		terminal.connect().
-			then(() => {
-				deviceNameLabel.textContent = terminal.getDeviceName() ?
-					terminal.getDeviceName() : defaultDeviceName;
-			});
+		logToTerminal('Error: There is no connected device');
 	}
 });
 
