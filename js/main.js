@@ -163,16 +163,22 @@ disconnectButton.addEventListener('click', () => {
 });
 
 settingButton.addEventListener('click', () => {
-	let settingWindow = document.getElementById('window');
 	
-	if(settingWindow.style.display == 'none' || settingWindow.style.display == '')
-	{
-		settingWindow.style.display = 'block';
-		send('SETTING');
+	if((!this._characteristic) {
+		logToTerminal('There is no connected device');
 	}
-	else
-	{
-		settingWindow.style.display = 'none';
+	else {
+		let settingWindow = document.getElementById('window');
+	
+		if(settingWindow.style.display == 'none' || settingWindow.style.display == '')
+		{
+			settingWindow.style.display = 'block';
+			send('SETTING');
+		}
+		else
+		{
+			settingWindow.style.display = 'none';
+		}
 	}
 });
 
