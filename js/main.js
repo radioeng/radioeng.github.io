@@ -164,9 +164,9 @@ disconnectButton.addEventListener('click', () => {
 
 settingButton.addEventListener('click', () => {
 	
-	if((!terminal._characteristic) {
+
 		logToTerminal('There is no connected device');
-	}
+
 	else {
 		let settingWindow = document.getElementById('window');
 	
