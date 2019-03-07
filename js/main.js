@@ -164,7 +164,7 @@ disconnectButton.addEventListener('click', () => {
 
 settingButton.addEventListener('click', () => {
 	
-	if((!this._characteristic) {
+	if((!terminal._characteristic) {
 		logToTerminal('There is no connected device');
 	}
 	else {
