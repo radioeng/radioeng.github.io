@@ -194,8 +194,7 @@ applyButton.addEventListener('click', function () {
 	
 	if(ftx.validity.valid)
 	{
-		//send('set -ftx ' + ftx.value);
-		alert('rabotaet');
+		send('set -ftx ' + ftx.value);
 	}
 	if(frx.validity.valid)
 	{
