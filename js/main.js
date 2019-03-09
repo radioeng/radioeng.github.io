@@ -189,8 +189,8 @@ pingButton.addEventListener('click', function () {
 });
 
 applyButton.addEventListener('click', function () {
-	ftx = document.getElementById("freqTx");
-	frx = document.getElementById("freqRx");
+	var ftx = document.getElementById("freqTx");
+	var frx = document.getElementById("freqRx");
 	
 	if(ftx.validaty.valid)
 	{
