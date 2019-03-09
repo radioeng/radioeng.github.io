@@ -2,7 +2,7 @@
 
 console.log('Service worker startup');
 
-const CACHE_NAME = 'webdrone-cache-1_2';
+const CACHE_NAME = 'SatMessenger';
 
 self.addEventListener('install', event => {
 
