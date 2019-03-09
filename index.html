@@ -52,11 +52,13 @@
 			<h3>Frequency Control</h3>
 				<div class="field">
 					<label for="freqTx">Frequency Tx, MHz</label>				
-					<input type="text"   id="freqTx"   class="input">	
+					<input type="number"  id="freqTx" class="input" min="290.000" max="320.000" step="0.001" >
+					<span class="form__error">Valid range 290..320 MHz</span>	
 				</div>	
 				<div class="field">
 					<label for="freqRx">Frequency Rx, MHz</label>
-					<input type="text"   id="freqRx"   class="input">
+					<input type="number"  id="freqRx" class="input" min="240.000" max="280.000" step="0.001">
+					<span class="form__error">Valid range 240..280 MHz</span>
 				</div>		
 				<div class="field">
 					<label for="capacitance">Crystal cap, pF</label>
@@ -65,8 +67,8 @@
 				<h3>Modulation Options</h3>
 				<div class="field">
 				<label for="modulation">Modulation type</label>
-					<select id="modulation">
-						<option value="GFSK">GFSK</option>
+					<select class="input" id="modulation">
+						<option value="GFSK" selected>GFSK</option>
 						<option value="FSK">FSK</option>
 						<option value="OOK">OOK</option>
 						<option value="CW">CW</option>
@@ -79,7 +81,8 @@
 				
 				<div class="field">
 					<label for="freqDev">Deviation, kHz</label>			
-					<input type="text" placeholder=""  id="freqDev"  class="input">
+					<input type="number"  id="freqDev"  class="input" min="0.625" max="319,375" step="0.001">
+					<span class="form__error">Valid range 0,625..319,375 MHz</span>
 				</div>
 				<div class="field">
 					<label for="dataRate">Data rate, kbps</label>
@@ -91,8 +94,8 @@
 					<input type="text"  id="preambleLength" class="input-short">
 				</div>
 				<div class="field">
-					<label for="preambleTrashold">Preamble treshold, bit</label>
-					<input type="text"  id="preambleTrashold" class="input-short">
+					<label for="preambleLength">Preamble treshold, bit</label>
+					<input type="text"  id="preambleLength" class="input-short">
 				</div>
 				<div class="field">
 					<label for="crc">CRC</label>
@@ -102,7 +105,7 @@
 				<div class="field">
 				<label for="ifFilter">IF filter, kHz</label>
 					<select class="input" id="ifFilter">
-						<option value="0">auto</option>
+						<option value="0" selected>auto</option>
 						<option value="2,6">2,6</option>
 						<option value="3,1">3,1</option>
 						<option value="3,7">3,7</option>

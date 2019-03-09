@@ -188,8 +188,21 @@ pingButton.addEventListener('click', function () {
 	send('ping');
 });
 
-
-
+applyButton.addEventListener('click', function () {
+	ftx = document.getElementById("freqTx");
+	frx = document.getElementById("freqRx");
+	
+	if(ftx.validaty.valid)
+	{
+		send('set -ftx ' + ftx.value);
+	}
+	if(frx.validaty.valid)
+	{
+		let temp = frx.value;
+		setTimeout(function() {send('set -frx ' + temp)}, 200);
+	}
+	
+});
 
 sendForm.addEventListener('submit', (event) => {
   event.preventDefault();
