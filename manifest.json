@@ -1,15 +1,12 @@
 {
-  "dir": "ltr",
+  "name": "Web ble SatMessenger",
+  "short_name": "SatMessenger",
+  "start_url": ".",
   "lang": "en",
   "display": "standalone",
-  "orientation": "any",
-  "start_url": "./",
-  "scope": "./",
-  "name": "Web Bluetooth Terminal",
-  "short_name": "Web Terminal",
-  "description": "Progressive Web Application for serial communication with your own Bluetooth Low Energy (Smart) devices",
-  "theme_color": "#2196f3",
   "background_color": "#ffffff",
+  "theme_color": "#2196f3", 
+  "description": "Progressive Web Application for serial communication with your own Bluetooth Low Energy (Smart) devices",  
   "icons": [
     {
       "src": "icons/android-chrome-36x36.png",
