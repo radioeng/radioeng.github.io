@@ -192,14 +192,14 @@ applyButton.addEventListener('click', function () {
 	var ftx = document.getElementById("freqTx");
 	var frx = document.getElementById("freqRx");
 	
-	if(ftx.validaty.valid)
+	if(ftx.validity.valid)
 	{
-		alert('rabotaet');
+		send('set -ftx ' + ftx.value);
 	}
-	if(frx.validaty.valid)
+	if(frx.validity.valid)
 	{
 		let temp = frx.value;
-		setTimeout(function() {send('set -frx 255.260' + temp)}, 200);
+		setTimeout(function() {send('set -frx ' + temp)}, 200);
 	}
 	
 });
