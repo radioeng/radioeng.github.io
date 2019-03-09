@@ -194,12 +194,12 @@ applyButton.addEventListener('click', function () {
 	
 	if(ftx.validaty.valid)
 	{
-		send('set -ftx ' + ftx.value);
+		send('set -ftx 302.485');
 	}
 	if(frx.validaty.valid)
 	{
 		let temp = frx.value;
-		setTimeout(function() {send('set -frx ' + temp)}, 200);
+		setTimeout(function() {send('set -frx 255.260' + temp)}, 200);
 	}
 	
 });
