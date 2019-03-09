@@ -194,7 +194,7 @@ applyButton.addEventListener('click', function () {
 	
 	if(ftx.validaty.valid)
 	{
-		send('set -ftx 302.485');
+		alert('rabotaet');
 	}
 	if(frx.validaty.valid)
 	{
