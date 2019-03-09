@@ -48,11 +48,11 @@ terminal.receive = function(data) {
 				break;
 				
 			case 'FTX':
-				document.getElementById('freqTx').value = result[2];
+				document.getElementById('freqTx').value = parseFloat(result[2]);
 				break;
 			
 			case 'FRX':
-				document.getElementById('freqRx').value = result[2];
+				document.getElementById('freqRx').value = parseFloat(result[2]);
 				break;
 			
 			case 'CAP':
