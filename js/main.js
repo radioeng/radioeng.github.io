@@ -150,6 +150,18 @@ applyButton.addEventListener('click', function () {
 		let temp = frx.value;
 		setTimeout(function() {send('set -frx ' + temp)}, delay+=100);
 	}	
+	if(cap.validity.valid && cap.value != setting.cap)
+	{
+		let temp = cap.value;
+		setTimeout(function() {send('set -cap ' + temp)}, delay+=100);
+	}
+	
+	if(mod.value != setting.mod)
+	{
+		let temp = mod.value;
+		setTimeout(function() {send('set -mod ' + temp)}, delay+=100);
+	}
+	
 });
 
 sendForm.addEventListener('submit', (event) => {
