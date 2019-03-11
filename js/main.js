@@ -59,7 +59,7 @@ terminal.receive = function(data) {
 	let selt  = document.getElementById('ifFilter');
 	let optst =  selt.options;
 		for(let optt, jt = 0; optt = optst[jt]; jt++) {
-			if(optt.value + '00' == setting.fil) {
+			if(optt.value == setting.fil) {
 				optt.selected = true;
 				break; 
 			}
