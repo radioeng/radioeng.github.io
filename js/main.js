@@ -173,7 +173,7 @@ applyButton.addEventListener('click', function () {
 	if(mch.checked != setting.mch)
 	{
 		let temp = mch.checked;
-		setTimeout(function() {send('set -mod ' + temp)}, delay+=100);
+		setTimeout(function() {send('set -mch ' + temp)}, delay+=100);
 	}
 	
 });
