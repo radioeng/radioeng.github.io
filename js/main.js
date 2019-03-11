@@ -147,7 +147,8 @@ applyButton.addEventListener('click', function () {
 	if(frx.validity.valid && frx.value != setting.frx)
 	{
 		let temp = frx.value;
-		setTimeout(function() {send('set -frx ' + temp)}, delay_ms+=100);
+		delay_ms += 100;
+		setTimeout(function() {send('set -frx ' + temp)}, delay_ms);
 	}	
 });
 
