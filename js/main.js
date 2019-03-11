@@ -73,7 +73,7 @@ terminal.receive = function(data) {
 	document.getElementById('afc').checked = setting.afc;
 	document.getElementById('ping-field').value = setting.ping;
 	
-	logToTerminal(setting.ftx);
+	logToTerminal(setting.ping);
 	//logToTerminal(data, 'in');
 
 };
