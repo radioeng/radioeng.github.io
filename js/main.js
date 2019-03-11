@@ -152,28 +152,29 @@ applyButton.addEventListener('click', function () {
 	
 	if(ftx.validity.valid && ftx.value != setting.ftx)
 	{
+		setting.ftx = ftx.value;
 		send('set -ftx ' + ftx.value);
 	}
 	if(frx.validity.valid && frx.value != setting.frx)
 	{
-		let temp = frx.value;
-		setTimeout(function() {send('set -frx ' + temp)}, delay+=100);
+		setting.frx = frx.value;
+		setTimeout(function() {send('set -frx ' + setting.frx)}, delay+=100);
 	}	
 	if(cap.validity.valid && cap.value != setting.cap)
 	{
-		let temp = cap.value;
-		setTimeout(function() {send('set -cap ' + temp)}, delay+=100);
+		setting.cap = cap.value;
+		setTimeout(function() {send('set -cap ' + setting.cap)}, delay+=100);
 	}
 	
 	if(mod.value != setting.mod)
 	{
-		let temp = mod.value;
-		setTimeout(function() {send('set -mod ' + temp)}, delay+=100);
+		setting.mod = mod.value;
+		setTimeout(function() {send('set -mod ' + setting.mod)}, delay+=100);
 	}
 	if(mch.checked != setting.mch)
 	{
-		let temp = mch.checked;
-		setTimeout(function() {send('set -mch ' + temp)}, delay+=100);
+		setting.mch = mch.checked;
+		setTimeout(function() {send('set -mch ' + setting.mch)}, delay+=100);
 	}
 	
 	setTimeout(function() {send('SETTING')}, delay+=100);
