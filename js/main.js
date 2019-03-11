@@ -133,9 +133,6 @@ pingButton.addEventListener('click', function () {
 	send('ping');
 });
 
-function senddelay(msg, delay){
-	setTimeout(function() {send(msg)}, delay);
-}
 
 applyButton.addEventListener('click', function () {
 	var ftx = document.getElementById("freqTx");
@@ -150,7 +147,8 @@ applyButton.addEventListener('click', function () {
 	}
 	if(frx.validity.valid && frx.value != setting.frx)
 	{
-		senddelay('set -frx ' + frx.value, 100);
+		let temp = frx.value;
+		setTimeout(function() {send('set -frx ' + temp)}, 100);
 	}	
 });
 
