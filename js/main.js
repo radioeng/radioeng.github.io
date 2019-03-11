@@ -135,12 +135,21 @@ pingButton.addEventListener('click', function () {
 
 
 applyButton.addEventListener('click', function () {
-	var ftx = document.getElementById("freqTx");
-	var frx = document.getElementById("freqRx");
-	var cap = document.getElementById('capacitance');
-	var mod = document.getElementById('modulation');
-	
+	let ftx = document.getElementById("freqTx");
+	let frx = document.getElementById("freqRx");
+	let cap = document.getElementById('capacitance');
+	let mod = document.getElementById('modulation');
+	let mch = document.getElementById('manchester');
+	let prl = document.getElementById('preambleLength');
+	let pth = document.getElementById('preambleTrashold');
+	let dev = document.getElementById('freqDev');
+	let dr  = document.getElementById('dataRate');
+	let crc = document.getElementById('crc');
+	let hmod = document.getElementById('modulationIndex');
+	let afc = document.getElementById('afc');
+		
 	var delay = 0;
+	
 	if(ftx.validity.valid && ftx.value != setting.ftx)
 	{
 		send('set -ftx ' + ftx.value);
@@ -159,6 +168,11 @@ applyButton.addEventListener('click', function () {
 	if(mod.value != setting.mod)
 	{
 		let temp = mod.value;
+		setTimeout(function() {send('set -mod ' + temp)}, delay+=100);
+	}
+	if(mch.checked != setting.mch)
+	{
+		let temp = mch.checked;
 		setTimeout(function() {send('set -mod ' + temp)}, delay+=100);
 	}
 	
