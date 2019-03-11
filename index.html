@@ -62,7 +62,8 @@
 				</div>		
 				<div class="field">
 					<label for="capacitance">Crystal cap, pF</label>
-					<input type="number" placeholder=""  id="capacitance" class="input">
+					<input type="number" id="capacitance" class="input" min="1.8" max="12.595" step="0.001">
+					<span class="form__error">Valid range 1,8..12,595 pF</span>
 				</div>
 				<h3>Modulation Options</h3>
 				<div class="field">
@@ -81,12 +82,13 @@
 				
 				<div class="field">
 					<label for="freqDev">Deviation, kHz</label>			
-					<input type="number"  id="freqDev"  class="input" min="0.625" max="319,375" step="0.001">
+					<input type="number"  id="freqDev"  class="input" min="0.625" max="319.375" step="0.001">
 					<span class="form__error">Valid range 0,625..319,375 MHz</span>
 				</div>
 				<div class="field">
 					<label for="dataRate">Data rate, kbps</label>
-					<input type="number" id="dataRate" class="input">
+					<input type="number" id="dataRate" class="input" min="0.123" max="256" step="0.001">
+					<span class="form__error">Valid range 0,123..256,000 kbps</span>
 				</div>
 				<h3>Packet Configuration</h3>
 				<div class="field">
