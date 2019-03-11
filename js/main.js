@@ -176,7 +176,7 @@ applyButton.addEventListener('click', function () {
 		setTimeout(function() {send('set -mch ' + temp)}, delay+=100);
 	}
 	
-	setTimeout(function() {send('SETING')}, delay);
+	setTimeout(function() {send('SETTING')}, delay+=100);
 	
 });
 
