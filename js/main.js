@@ -36,100 +36,13 @@ const terminal = new BluetoothTerminal();
 
 // Override `receive` method to log incoming data to the terminal.
 terminal.receive = function(data) {
-	var regex = /^[$]([A-Z]+)[=]([\+|\-]?\d+(\,\d{1,3})?|[A-Z]{2,4}|true|false)/;
-	let result = data.match(regex);
-	
-	if(result != true)
-	{		
-		switch(result[1])
-		{
-			case 'PING':
-				document.getElementById('ping-field').value = result[2] + ' ms';
-				break;
-				
-			case 'FTX':
-				document.getElementById('freqTx').value = parseFloat(result[2]);
-				break;
-			
-			case 'FRX':
-				document.getElementById('freqRx').value = parseFloat(result[2]);
-				break;
-			
-			case 'CAP':
-				document.getElementById('capacitance').value = result[2];
-				break;
-				
-			case 'MOD':
-				let sel  = document.getElementById('modulation');
-				let opts =  sel.options;
-				for(let opt, j = 0; opt = opts[j]; j++) {
-					if(opt.value == result[2]) {
-						opt.selected = true;
-						break; 
-					}
-				}
-				break;
-				
-			case 'MCH':
-				if(result[2] === 'true')
-					document.getElementById('manchester').checked = true;
-				else if(result[2] === 'false')
-					document.getElementById('manchester').checked = false;
-				break;
-				
-			case 'PRL':
-				document.getElementById('preambleLength').value = result[2];
-				break;
-			
-			case 'PTH':
-				document.getElementById('preambleTrashold').value = result[2];
-				break;
-				
-			case 'FIL':
-				let selt  = document.getElementById('ifFilter');
-				let optst =  selt.options;
-				for(let optt, jt = 0; optt = optst[jt]; jt++) {
-					if(optt.value + '00' == result[2]) {
-						optt.selected = true;
-						break; 
-					}
-				}
-				break;
-				
-			case 'DEV':
-				document.getElementById('freqDev').value = result[2];
-				break;
-			
-			case 'DR':
-				document.getElementById('dataRate').value = result[2];
-				break;
-			
-			case 'CRC':
-				if(result[2] === 'true')
-					document.getElementById('crc').checked = true;
-				else if(result[2] === 'false')
-					document.getElementById('crc').checked = false;
-				break;
-			
-			case 'HMOD':
-				document.getElementById('modulationIndex').value = result[2];
-				break;
-			
-			case 'AFC':
-				if(result[2] === 'true')
-					document.getElementById('afc').checked = true;
-				else if(result[2] === 'false')
-					document.getElementById('afc').checked = false;
-				break;
-				
-			default:
-				break;
-		}
-	}
-	else
-	{
-		logToTerminal(data, 'in');
-	}
+	var regex = /{"[a-z]+":/;
+	if(data.match(regex)) {
+		var setting = JSON.parse(data);}
+		
+	logToTerminal(setting.ftx);
+	//logToTerminal(data, 'in');
+
 };
 
 // Override default log method to output messages to the terminal and console.
