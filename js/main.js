@@ -140,7 +140,7 @@ applyButton.addEventListener('click', function () {
 	var cap = document.getElementById('capacitance');
 	var mod = document.getElementById('modulation');
 	
-	//var i = 100;
+	var delay = 0;
 	if(ftx.validity.valid && ftx.value != setting.ftx)
 	{
 		send('set -ftx ' + ftx.value);
@@ -148,7 +148,7 @@ applyButton.addEventListener('click', function () {
 	if(frx.validity.valid && frx.value != setting.frx)
 	{
 		let temp = frx.value;
-		setTimeout(function() {send('set -frx ' + temp)}, 100);
+		setTimeout(function() {send('set -frx ' + temp)}, delay+=100);
 	}	
 });
 
