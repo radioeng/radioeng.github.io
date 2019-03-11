@@ -136,6 +136,10 @@ pingButton.addEventListener('click', function () {
 applyButton.addEventListener('click', function () {
 	var ftx = document.getElementById("freqTx");
 	var frx = document.getElementById("freqRx");
+	var cap = getElementById('capacitance');
+	var mod = document.getElementById('modulation');
+	
+	let delay;
 	
 	if(ftx.validity.valid && ftx.value != setting.ftx)
 	{
@@ -144,8 +148,20 @@ applyButton.addEventListener('click', function () {
 	if(frx.validity.valid && frx.value != setting.frx)
 	{
 		let temp = frx.value;
-		setTimeout(function() {send('set -frx ' + temp)}, 200);
+		setTimeout(function() {send('set -frx ' + temp)}, delay+=100);
 	}
+	if(cap.validity.valid && cap.value != setting.cap)
+	{
+		let temp = cap.value;
+		setTimeout(function() {send('set -cap ' + temp)}, delay+=100);
+	}
+	if(mod.value != setting.mod)
+	{
+		let temp = mod.value;
+		setTimeout(function() {send('set -mod ' + temp)}, delay+=100);
+	}
+
+	
 	
 });
 
