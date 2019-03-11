@@ -71,7 +71,7 @@ terminal.receive = function(data) {
 	document.getElementById('crc').checked = setting.crc;
 	document.getElementById('modulationIndex').value = setting.hmod;
 	document.getElementById('afc').checked = setting.afc;
-	document.getElementById('ping').value = setting.ping;
+	document.getElementById('ping-field').value = setting.ping;
 	
 	logToTerminal(setting.ftx);
 	//logToTerminal(data, 'in');
