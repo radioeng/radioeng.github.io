@@ -40,9 +40,9 @@ terminal.receive = function(data) {
 	if(data.match(regex)) {
 		var setting = JSON.parse(data);}
 	
-	document.getElementById('freqTx').value = setting.ftx;
-	document.getElementById('freqRx').value = setting.frx;
-	document.getElementById('capacitance').value = setting.cap;	
+	document.getElementById('freqTx').value = setting.ftx.toFixed(3);
+	document.getElementById('freqRx').value = setting.frx.toFixed(3);
+	document.getElementById('capacitance').value = setting.cap.toFixed(3);	
 	
 	let sel  = document.getElementById('modulation');
 	let opts =  sel.options;
@@ -64,8 +64,8 @@ terminal.receive = function(data) {
 				break; 
 			}
 		}
-	document.getElementById('freqDev').value = setting.dev;
-	document.getElementById('dataRate').value = setting.dr;
+	document.getElementById('freqDev').value = setting.dev.toFixed(3);
+	document.getElementById('dataRate').value = setting.dr.toFixed(3);
 	document.getElementById('crc').checked = setting.crc;
 	document.getElementById('modulationIndex').value = setting.hmod;
 	document.getElementById('afc').checked = setting.afc;
