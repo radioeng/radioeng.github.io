@@ -139,7 +139,7 @@ applyButton.addEventListener('click', function () {
 	var cap = getElementById('capacitance');
 	var mod = document.getElementById('modulation');
 	
-	var delay_ms = '100';
+	var delay_ms = 100;
 	if(ftx.validity.valid && ftx.value != setting.ftx)
 	{
 		send('set -ftx ' + ftx.value);
