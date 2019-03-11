@@ -9,6 +9,8 @@ const settingButton = document.getElementById('settings');
 const pingButton = document.getElementById('ping');
 const applyButton = document.getElementById('Apply');
 
+setting = new Object();
+
 // Helpers.
 const defaultDeviceName = 'Terminal';
 const terminalAutoScrollingLimit = terminalContainer.offsetHeight / 2;
@@ -38,7 +40,7 @@ const terminal = new BluetoothTerminal();
 terminal.receive = function(data) {
 	var regex = /{"[a-z]+":/;
 	if(data.match(regex)) {
-		var setting = JSON.parse(data);}
+		setting = JSON.parse(data);}
 	
 	document.getElementById('freqTx').value = setting.ftx.toFixed(3);
 	document.getElementById('freqRx').value = setting.frx.toFixed(3);
