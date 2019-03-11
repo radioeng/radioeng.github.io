@@ -135,11 +135,11 @@ applyButton.addEventListener('click', function () {
 	var ftx = document.getElementById("freqTx");
 	var frx = document.getElementById("freqRx");
 	
-	if(ftx.validity.valid)
+	if(ftx.validity.valid && ftx.value == setting.ftx)
 	{
 		send('set -ftx ' + ftx.value);
 	}
-	if(frx.validity.valid)
+	if(frx.validity.valid && frx.value == setting.frx)
 	{
 		let temp = frx.value;
 		setTimeout(function() {send('set -frx ' + temp)}, 200);
