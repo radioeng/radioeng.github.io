@@ -137,7 +137,7 @@ pingButton.addEventListener('click', function () {
 applyButton.addEventListener('click', function () {
 	var ftx = document.getElementById("freqTx");
 	var frx = document.getElementById("freqRx");
-	var cap = getElementById('capacitance');
+	var cap = document.getElementById('capacitance');
 	var mod = document.getElementById('modulation');
 	
 	//var i = 100;
