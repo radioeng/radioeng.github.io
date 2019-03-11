@@ -39,7 +39,37 @@ terminal.receive = function(data) {
 	var regex = /{"[a-z]+":/;
 	if(data.match(regex)) {
 		var setting = JSON.parse(data);}
-		
+	
+	document.getElementById('freqTx').value = setting.ftx;
+	document.getElementById('freqRx').value = setting.frx;
+	document.getElementById('capacitance').value = setting.cap;	
+	
+	let sel  = document.getElementById('modulation');
+	let opts =  sel.options;
+	for(let opt, j = 0; opt = opts[j]; j++) {
+		if(opt.value == setting.mod) {
+			opt.selected = true;
+			break; 
+		}
+	}
+	document.getElementById('manchester').checked = setting.mch;
+	document.getElementById('preambleLength').value = setting.prl;
+	document.getElementById('preambleTrashold').value = setting.pth;
+
+	let selt  = document.getElementById('ifFilter');
+	let optst =  selt.options;
+		for(let optt, jt = 0; optt = optst[jt]; jt++) {
+			if(optt.value + '00' == setting.fil) {
+				optt.selected = true;
+				break; 
+			}
+		}
+	document.getElementById('freqDev').value = setting.dev;
+	document.getElementById('dataRate').value = setting.dr;
+	document.getElementById('crc').checked = setting.crc;
+	document.getElementById('modulationIndex').value = setting.hmod;
+	document.getElementById('afc').checked = setting.afc;
+	
 	logToTerminal(setting.ftx);
 	//logToTerminal(data, 'in');
 
