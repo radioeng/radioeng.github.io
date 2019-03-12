@@ -40,7 +40,10 @@ const terminal = new BluetoothTerminal();
 terminal.receive = function(data) {
 	var regex = /{"[a-z]+":/;
 	if(data.match(regex) != null) {
-		setting = JSON.parse(data);
+	setting = JSON.parse(data, function(key, value) {
+		if (key == 'ping') document.getElementById('ping-field').value = value;
+		return value;
+	});
 	
 	document.getElementById('freqTx').value = setting.ftx.toFixed(3);
 	document.getElementById('freqRx').value = setting.frx.toFixed(3);
@@ -71,6 +74,7 @@ terminal.receive = function(data) {
 	document.getElementById('crc').checked = setting.crc;
 	document.getElementById('modulationIndex').value = setting.hmod;
 	document.getElementById('afc').checked = setting.afc;
+	
 	}
 	else {
 	logToTerminal(data, 'in'); }
