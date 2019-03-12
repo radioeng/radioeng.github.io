@@ -217,7 +217,7 @@ applyButton.addEventListener('click', function () {
 	}
 	
 	setTimeout(function() {send('SETTING')}, delay+=100);
-	
+	logToTerminal(delay);
 });
 
 sendForm.addEventListener('submit', (event) => {
