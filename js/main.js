@@ -145,6 +145,7 @@ applyButton.addEventListener('click', function () {
 	let mch = document.getElementById('manchester');
 	let prl = document.getElementById('preambleLength');
 	let pth = document.getElementById('preambleTrashold');
+	let fil = document.getElementById('ifFilter');
 	let dev = document.getElementById('freqDev');
 	let dr  = document.getElementById('dataRate');
 	let crc = document.getElementById('crc');
@@ -188,6 +189,11 @@ applyButton.addEventListener('click', function () {
 	{
 		setting.pth = pth.value;
 		setTimeout(function() {send('set -pth ' + setting.pth)}, delay+=10);
+	}
+	if(fil.value != setting.fil)
+	{
+		setting.fil = fil.value;
+		setTimeout(function() {send('set -fil ' + setting.fil)}, delay+=100);
 	}
 	if(dev.validity.valid && dev.value != setting.dev)
 	{
