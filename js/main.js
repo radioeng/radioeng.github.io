@@ -39,8 +39,8 @@ const terminal = new BluetoothTerminal();
 // Override `receive` method to log incoming data to the terminal.
 terminal.receive = function(data) {
 	var regex = /{"[a-z]+":/;
-	if(data.match(regex)) {
-		setting = JSON.parse(data);}
+	if(data.match(regex) != null) {
+		setting = JSON.parse(data);
 	
 	document.getElementById('freqTx').value = setting.ftx.toFixed(3);
 	document.getElementById('freqRx').value = setting.frx.toFixed(3);
@@ -71,10 +71,9 @@ terminal.receive = function(data) {
 	document.getElementById('crc').checked = setting.crc;
 	document.getElementById('modulationIndex').value = setting.hmod;
 	document.getElementById('afc').checked = setting.afc;
-	
-	
-	logToTerminal(setting.ping);
-	//logToTerminal(data, 'in');
+	}
+	else {
+	logToTerminal(data, 'in'); }
 };
 
 // Override default log method to output messages to the terminal and console.
