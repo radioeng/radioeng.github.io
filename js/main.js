@@ -39,10 +39,6 @@ const terminal = new BluetoothTerminal();
 // Override `receive` method to log incoming data to the terminal.
 terminal.receive = function(data) {
 	var regex = /{"[a-z]+":/;
-	var result = data.match(/{"ping":(\d{1,3})/);
-	if(result[1]) {
-		document.getElementById('ping-field').value = result[1]; }
-	else {
 	if(data.match(regex)) {
 		setting = JSON.parse(data);}
 	
@@ -75,7 +71,7 @@ terminal.receive = function(data) {
 	document.getElementById('crc').checked = setting.crc;
 	document.getElementById('modulationIndex').value = setting.hmod;
 	document.getElementById('afc').checked = setting.afc;
-	}
+
 	
 	logToTerminal(setting.ping);
 	//logToTerminal(data, 'in');
