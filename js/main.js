@@ -162,12 +162,12 @@ applyButton.addEventListener('click', function () {
 	if(frx.validity.valid && frx.value != setting.frx)
 	{
 		setting.frx = frx.value;
-		setTimeout(function() {send('set -frx ' + setting.frx)}, delay+=50);
+		setTimeout(function() {send('set -frx ' + setting.frx)}, delay+=30);
 	}	
 	if(cap.validity.valid && cap.value != setting.cap)
 	{
 		setting.cap = cap.value;
-		setTimeout(function() {send('set -cap ' + setting.cap)}, delay+=20);
+		setTimeout(function() {send('set -cap ' + setting.cap)}, delay+=30);
 	}
 	
 	if(mod.value != setting.mod)
@@ -193,22 +193,22 @@ applyButton.addEventListener('click', function () {
 	if(fil.value != setting.fil)
 	{
 		setting.fil = fil.value;
-		setTimeout(function() {send('set -fil ' + setting.fil)}, delay+=100);
+		setTimeout(function() {send('set -fil ' + setting.fil)}, delay+=10);
 	}
 	if(dev.validity.valid && dev.value != setting.dev)
 	{
 		setting.dev = dev.value;
-		setTimeout(function() {send('set -dev ' + setting.dev)}, delay+=50);
+		setTimeout(function() {send('set -dev ' + setting.dev)}, delay+=20);
 	}
 	if(dr.validity.valid && dr.value != setting.dr)
 	{
 		setting.dr = dr.value;
-		setTimeout(function() {send('set -dr ' + setting.dr)}, delay+=50);
+		setTimeout(function() {send('set -dr ' + setting.dr)}, delay+=20);
 	}
 	if(crc.checked != setting.crc)
 	{
 		setting.crc = crc.checked;
-		setTimeout(function() {send('set -crc ' + setting.crc)}, delay+=10);
+		setTimeout(function() {send('set -crc ' + setting.crc)}, delay+=20);
 	}
 	if(afc.checked != setting.afc)
 	{
