@@ -152,73 +152,85 @@ applyButton.addEventListener('click', function () {
 	let hmod = document.getElementById('modulationIndex');
 	let afc = document.getElementById('afc');
 		
-	var delay = 0;
+	var set = 'set';
 	
 	if(ftx.validity.valid && ftx.value != setting.ftx)
 	{
 		setting.ftx = ftx.value;
-		send('set -ftx ' + ftx.value);
+		//send('set -ftx ' + ftx.value);
+		set += ' -ftx ' + setting.ftx;
 	}
 	if(frx.validity.valid && frx.value != setting.frx)
 	{
 		setting.frx = frx.value;
-		setTimeout(function() {send('set -frx ' + setting.frx)}, delay+=30);
+		//setTimeout(function() {send('set -frx ' + setting.frx)}, delay+=30);
+		set += ' -frx ' + setting.frx;
 	}	
 	if(cap.validity.valid && cap.value != setting.cap)
 	{
 		setting.cap = cap.value;
-		setTimeout(function() {send('set -cap ' + setting.cap)}, delay+=30);
+		//setTimeout(function() {send('set -cap ' + setting.cap)}, delay+=30);
+		set += ' -cap ' + setting.cap;
 	}
 	
 	if(mod.value != setting.mod)
 	{
 		setting.mod = mod.value;
-		setTimeout(function() {send('set -mod ' + setting.mod)}, delay+=10);
+		//setTimeout(function() {send('set -mod ' + setting.mod)}, delay+=10);
+		set += ' -mod ' + setting.mod;
 	}
 	if(mch.checked != setting.mch)
 	{
 		setting.mch = mch.checked;
-		setTimeout(function() {send('set -mch ' + setting.mch)}, delay+=10);
+		//setTimeout(function() {send('set -mch ' + setting.mch)}, delay+=10);
+		set += ' -mch ' + setting.mch;
 	}
 	if(prl.validity.valid && prl.value != setting.prl)
 	{
 		setting.prl = prl.value;
-		setTimeout(function() {send('set -prl ' + setting.prl)}, delay+=10);
+		//setTimeout(function() {send('set -prl ' + setting.prl)}, delay+=10);
+		set += ' -prl ' + setting.prl;
 	}
 	if(pth.validity.valid && pth.value != setting.pth)
 	{
 		setting.pth = pth.value;
-		setTimeout(function() {send('set -pth ' + setting.pth)}, delay+=10);
+		//setTimeout(function() {send('set -pth ' + setting.pth)}, delay+=10);
+		set += ' -pth ' + setting.pth;
 	}
 	if(fil.value != setting.fil)
 	{
 		setting.fil = fil.value;
-		setTimeout(function() {send('set -fil ' + setting.fil)}, delay+=10);
+		//setTimeout(function() {send('set -fil ' + setting.fil)}, delay+=10);
+		set += ' -fil ' + setting.fil;
 	}
 	if(dev.validity.valid && dev.value != setting.dev)
 	{
 		setting.dev = dev.value;
-		setTimeout(function() {send('set -dev ' + setting.dev)}, delay+=20);
+		//setTimeout(function() {send('set -dev ' + setting.dev)}, delay+=20);
+		set += ' -dev ' + setting.dev;
 	}
 	if(dr.validity.valid && dr.value != setting.dr)
 	{
 		setting.dr = dr.value;
-		setTimeout(function() {send('set -dr ' + setting.dr)}, delay+=20);
+		//setTimeout(function() {send('set -dr ' + setting.dr)}, delay+=20);
+		set += ' -dr ' + setting.dr;
 	}
 	if(crc.checked != setting.crc)
 	{
 		setting.crc = crc.checked;
-		setTimeout(function() {send('set -crc ' + setting.crc)}, delay+=20);
+		//setTimeout(function() {send('set -crc ' + setting.crc)}, delay+=20);
+		set += ' -crc ' + setting.crc;
 	}
 	if(afc.checked != setting.afc)
 	{
 		setting.afc = afc.checked;
-		setTimeout(function() {send('set -afc ' + setting.afc)}, delay+=10);
+		//setTimeout(function() {send('set -afc ' + setting.afc)}, delay+=10);
+		set += ' -afc ' + setting.afc;
 	}
 	
-	setTimeout(function() {send('SETTING')}, delay+=100);
+	send(set);
+	setTimeout(function() {send('SETTING')}, 200);
 	
-	logToTerminal(delay + 'ms');
 });
 
 sendForm.addEventListener('submit', (event) => {
