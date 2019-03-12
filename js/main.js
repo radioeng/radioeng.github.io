@@ -40,7 +40,7 @@ const terminal = new BluetoothTerminal();
 terminal.receive = function(data) {
 	var regex = /{"[a-z]+":/;
 	if(data.match(regex)) {
-		if(data.match(/{"ping":/) {
+		if(data.match(/{"ping":/)) {
 			document.getElementById('ping-field').value = JSON.parse(data).ping;
 		}
 		} else {	
