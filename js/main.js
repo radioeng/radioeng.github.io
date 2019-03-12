@@ -44,7 +44,7 @@ terminal.receive = function(data) {
 	if(obj.ping != null)
 	{
 		document.getElementById('ping-field').value = obj.ping;
-	} else(obj.ftx != null) {
+	} else if(obj.ftx != null) {
 		setting = obj;
 		
 	document.getElementById('freqTx').value = setting.ftx.toFixed(3);
