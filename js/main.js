@@ -40,10 +40,6 @@ const terminal = new BluetoothTerminal();
 terminal.receive = function(data) {
 	var regex = /{"[a-z]+":/;
 	if(data.match(regex)) {
-		if(data.match(/{"ping":/)) {
-			document.getElementById('ping-field').value = JSON.parse(data).ping;
-		}
-		} else {	
 		setting = JSON.parse(data);}
 	
 	document.getElementById('freqTx').value = setting.ftx.toFixed(3);
