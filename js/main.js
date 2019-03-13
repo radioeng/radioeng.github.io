@@ -89,13 +89,10 @@ terminal._log = function(...messages) {
 
 // Implement own send function to log outcoming data to the terminal.
 const send = (data, msg) => {
-	if(msg == true) {
-  terminal.send(data).
-      then(() => logToTerminal(data, 'out')).
-      catch((error) => logToTerminal(error));
-	} else {
-		terminal.send(data);
-	}
+		terminal.send(data).
+		then(() => logToTerminal(data, 'out')).
+		catch((error) => logToTerminal(error));
+	
 };
 
 // Bind event listeners to the UI elements.
