@@ -39,42 +39,47 @@ const terminal = new BluetoothTerminal();
 // Override `receive` method to log incoming data to the terminal.
 terminal.receive = function(data) {
 	var regex = /{"[a-z]+":/;
-	if(data.match(regex) != null) {
-	var obj = JSON.parse(data);
-	if(obj.msg  != null) {
-		logToTerminal(data, 'in');
-	} else if(obj.ping != null)	{
-		document.getElementById('ping-field').value = obj.ping;
-	} else if(obj.ftx != null) {
-		setting = obj;	
-		document.getElementById('freqTx').value = setting.ftx.toFixed(3);
-		document.getElementById('freqRx').value = setting.frx.toFixed(3);
-		document.getElementById('capacitance').value = setting.cap.toFixed(3);	
-	
-		let sel  = document.getElementById('modulation');
-		let opts =  sel.options;
-		for(let opt, j = 0; opt = opts[j]; j++) {
-			if(opt.value == setting.mod) {
-				opt.selected = true;
-				break; 
-			}
+	if(data.match(regex) != null) 
+	{
+		var obj = JSON.parse(data);
+		if(obj.msg  != null) {
+			logToTerminal(data, 'in'); }
+		else if(obj.ping != null)
+		{
+			document.getElementById('ping-field').value = obj.ping; 
 		}
-		document.getElementById('manchester').checked = setting.mch;
-		document.getElementById('preambleLength').value = setting.prl;
-		document.getElementById('preambleTrashold').value = setting.pth;
-		let selt  = document.getElementById('ifFilter');
-		let optst =  selt.options;
-			for(let optt, jt = 0; optt = optst[jt]; jt++) {
-				if(optt.value == setting.fil) {
-					optt.selected = true;
+		else if(obj.ftx != null) 
+		{
+			setting = obj;	
+			document.getElementById('freqTx').value = setting.ftx.toFixed(3);
+			document.getElementById('freqRx').value = setting.frx.toFixed(3);
+			document.getElementById('capacitance').value = setting.cap.toFixed(3);	
+			let sel  = document.getElementById('modulation');
+			let opts =  sel.options;
+			for(let opt, j = 0; opt = opts[j]; j++) {
+				if(opt.value == setting.mod) {
+					opt.selected = true;
 					break; 
 				}
 			}
-		document.getElementById('freqDev').value = setting.dev.toFixed(3);
-		document.getElementById('dataRate').value = setting.dr.toFixed(3);
-		document.getElementById('crc').checked = setting.crc;
-		document.getElementById('modulationIndex').value = setting.hmod;
-		document.getElementById('afc').checked = setting.afc;
+			document.getElementById('manchester').checked = setting.mch;
+			document.getElementById('preambleLength').value = setting.prl;
+			document.getElementById('preambleTrashold').value = setting.pth;
+			let selt  = document.getElementById('ifFilter');
+			let optst =  selt.options;
+				for(let optt, jt = 0; optt = optst[jt]; jt++) {
+					if(optt.value == setting.fil) {
+						optt.selected = true;
+						break; 
+					}
+				}
+			document.getElementById('freqDev').value = setting.dev.toFixed(3);
+			document.getElementById('dataRate').value = setting.dr.toFixed(3);
+			document.getElementById('crc').checked = setting.crc;
+			document.getElementById('modulationIndex').value = setting.hmod;
+			document.getElementById('afc').checked = setting.afc; 
+		}
+	
 	}
 };
 
@@ -88,11 +93,15 @@ terminal._log = function(...messages) {
 };
 
 // Implement own send function to log outcoming data to the terminal.
-const send = (data) => {
+const send = (data, msg) => {
+	if(msg == true) 
+	{
 		terminal.send(data).
 		then(() => logToTerminal(data, 'out')).
 		catch((error) => logToTerminal(error));
-	
+	} else {
+		terminal.send(data);
+	}	
 };
 
 // Bind event listeners to the UI elements.
@@ -235,7 +244,7 @@ applyButton.addEventListener('click', function () {
 sendForm.addEventListener('submit', (event) => {
   event.preventDefault();
 
-  send(inputField.value);
+  send(inputField.value, true);
 
   inputField.value = '';
   inputField.focus();
