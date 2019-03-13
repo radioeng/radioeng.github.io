@@ -88,7 +88,7 @@ terminal._log = function(...messages) {
 };
 
 // Implement own send function to log outcoming data to the terminal.
-const send = (data, msg) => {
+const send = (data) => {
 		terminal.send(data).
 		then(() => logToTerminal(data, 'out')).
 		catch((error) => logToTerminal(error));
@@ -235,7 +235,7 @@ applyButton.addEventListener('click', function () {
 sendForm.addEventListener('submit', (event) => {
   event.preventDefault();
 
-  send(inputField.value, true);
+  send(inputField.value);
 
   inputField.value = '';
   inputField.focus();
