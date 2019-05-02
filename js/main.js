@@ -8,6 +8,7 @@ const inputField = document.getElementById('input');
 const settingButton = document.getElementById('settings');
 const pingButton = document.getElementById('ping');
 const applyButton = document.getElementById('Apply');
+const saveButton = document.getElementById('Save');
 
 setting = new Object();
 
@@ -142,6 +143,10 @@ settingButton.addEventListener('click', () => {
 
 pingButton.addEventListener('click', function () {
 	send('ping');
+});
+
+saveButton.addEventListener('click', function () {
+	send('save');
 });
 
 
