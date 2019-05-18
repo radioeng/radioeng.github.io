@@ -142,7 +142,7 @@ settingButton.addEventListener('click', () => {
 });
 
 pingButton.addEventListener('click', function () {
-	send('send -m -t "ttttt" -r');
+	send('ping');
 });
 
 saveButton.addEventListener('click', function () {
