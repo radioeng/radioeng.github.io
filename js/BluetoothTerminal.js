@@ -300,12 +300,12 @@ class BluetoothTerminal {
 
     return characteristic.startNotifications().
         then(() => {
-			send(msg-start);
           this._log('Notifications started');
-
+		  
           characteristic.addEventListener('characteristicvaluechanged',
               this._boundHandleCharacteristicValueChanged);
         });
+		send(msg-start);
   }
 
   /**
