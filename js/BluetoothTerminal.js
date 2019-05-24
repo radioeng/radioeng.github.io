@@ -178,6 +178,11 @@ class BluetoothTerminal {
 
     return promise;
   }
+  
+  function msg_break() {
+	var data = new Uint8Array([0x03]);
+	this.writeValue(data);  
+  }
    
 
   /**
@@ -375,6 +380,8 @@ class BluetoothTerminal {
   _writeToCharacteristic(characteristic, data) {
     return characteristic.writeValue(new TextEncoder().encode(data));
   }
+  
+  
   
 
   /**
