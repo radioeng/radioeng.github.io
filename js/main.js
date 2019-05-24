@@ -135,6 +135,7 @@ settingButton.addEventListener('click', () => {
 		else
 		{
 			settingWindow.style.display = 'none';
+			send('msg-start');
 		}
 	}
 	else
