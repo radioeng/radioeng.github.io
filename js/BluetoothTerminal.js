@@ -419,7 +419,8 @@ class BluetoothTerminal {
   }
   
   _writeToCharacteristic2(characteristic, data) {
-    return characteristic.writeValue(data);
+	  let data1 = new Uint8Array([0x03]);
+    return characteristic.writeValue(data1);
   }
   
   
