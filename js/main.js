@@ -111,6 +111,7 @@ connectButton.addEventListener('click', () => {
       then(() => {
         deviceNameLabel.textContent = terminal.getDeviceName() ?
             terminal.getDeviceName() : defaultDeviceName;
+			send(msg-start);
       });
 });
 
