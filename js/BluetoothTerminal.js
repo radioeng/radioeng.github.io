@@ -375,6 +375,9 @@ class BluetoothTerminal {
   _writeToCharacteristic(characteristic, data) {
     return characteristic.writeValue(new TextEncoder().encode(data));
   }
+  void msg_break(void) {
+	  characteristic.writeValue(0x03);
+  }
 
   /**
    * Log.

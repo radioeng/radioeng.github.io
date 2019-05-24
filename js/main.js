@@ -128,6 +128,7 @@ settingButton.addEventListener('click', () => {
 		if(settingWindow.style.display == 'none' || settingWindow.style.display == '')
 		{
 			settingWindow.style.display = 'block';
+			msg_break();
 			send('SETTING');
 		}
 		else
