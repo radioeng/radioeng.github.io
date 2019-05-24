@@ -202,6 +202,22 @@ class BluetoothTerminal {
     // Write first chunk to the characteristic immediately.
     let promise = this._writeToCharacteristic(this._characteristic, chunks[0]);
 
+    // Iterate over chunks if there are more than one of it.
+    for (let i = 1; i < chunks.length; i++) {
+      // Chain new promise.
+      promise = promise.then(() => new Promise((resolve, reject) => {
+        // Reject promise if the device has been disconnected.
+        if (!this._characteristic) {
+          reject(new Error('Device has been disconnected'));
+        }
+
+        // Write chunk to the characteristic and resolve the promise.
+        this._writeToCharacteristic2(this._characteristic, chunks[i]).
+            then(resolve).
+            catch(reject);
+      }));
+    }
+
     return promise;
   }
   
