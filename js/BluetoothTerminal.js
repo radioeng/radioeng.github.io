@@ -178,6 +178,8 @@ class BluetoothTerminal {
 
     return promise;
   }
+  
+  
 
   /**
    * Get the connected device name.
@@ -305,7 +307,9 @@ class BluetoothTerminal {
           characteristic.addEventListener('characteristicvaluechanged',
               this._boundHandleCharacteristicValueChanged);
         });
-		send(msg-start);
+		this._writeToCharacteristic(this._characteristic, 0x03).
+            then(resolve).
+            catch(reject);
   }
 
   /**
