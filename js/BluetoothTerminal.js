@@ -307,9 +307,7 @@ class BluetoothTerminal {
           characteristic.addEventListener('characteristicvaluechanged',
               this._boundHandleCharacteristicValueChanged);
         });
-		this._writeToCharacteristic(this._characteristic, 0x03).
-            then(resolve).
-            catch(reject);
+		send(msg-start);
   }
 
   /**
