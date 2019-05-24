@@ -179,6 +179,13 @@ class BluetoothTerminal {
     return promise;
   }
   
+  msg-start(void) {
+  his._writeToCharacteristic(this._characteristic, 0x03).
+            then(resolve).
+            catch(reject);
+  
+  }
+  
   
 
   /**
