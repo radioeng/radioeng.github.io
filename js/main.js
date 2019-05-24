@@ -128,7 +128,6 @@ settingButton.addEventListener('click', () => {
 		if(settingWindow.style.display == 'none' || settingWindow.style.display == '')
 		{
 			settingWindow.style.display = 'block';
-			send2();
 			setTimeout(function() {send('SETTING')}, 100);
 		}
 		else

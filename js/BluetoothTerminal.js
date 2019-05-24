@@ -179,15 +179,6 @@ class BluetoothTerminal {
     return promise;
   }
   
-  
-  function send2() {
-
-    // Write first chunk to the characteristic immediately.
-    let promise = this._writeToCharacteristic(this._characteristic, 0x03);
-
-    return promise;
-  }
-   
 
   /**
    * Get the connected device name.
