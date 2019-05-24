@@ -178,15 +178,7 @@ class BluetoothTerminal {
 
     return promise;
   }
-  
-  msg-start(void) {
-  this._writeToCharacteristic(this._characteristic, 0x03).
-            then(resolve).
-            catch(reject);
-  
-  }
-  
-  
+   
 
   /**
    * Get the connected device name.
