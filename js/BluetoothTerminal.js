@@ -178,49 +178,6 @@ class BluetoothTerminal {
 
     return promise;
   }
-  
-   send2(data) {
-    // Convert data to the string using global object.
-    data = String(data || '');
-
-    // Return rejected promise immediately if data is empty.
-    if (!data) {
-      return Promise.reject(new Error('Data must be not empty'));
-    }
-
-    data += this._sendSeparator;
-
-    // Split data to chunks by max characteristic value length.
-    const chunks = this.constructor._splitByLength(data,
-        this._maxCharacteristicValueLength);
-
-    // Return rejected promise immediately if there is no connected device.
-    if (!this._characteristic) {
-      return Promise.reject(new Error('There is no connected device'));
-    }
-
-    // Write first chunk to the characteristic immediately.
-    let promise = this._writeToCharacteristic(this._characteristic, chunks[0]);
-
-    // Iterate over chunks if there are more than one of it.
-    for (let i = 1; i < chunks.length; i++) {
-      // Chain new promise.
-      promise = promise.then(() => new Promise((resolve, reject) => {
-        // Reject promise if the device has been disconnected.
-        if (!this._characteristic) {
-          reject(new Error('Device has been disconnected'));
-        }
-
-        // Write chunk to the characteristic and resolve the promise.
-        this._writeToCharacteristic2(this._characteristic, chunks[i]).
-            then(resolve).
-            catch(reject);
-      }));
-    }
-
-    return promise;
-  }
-  
 
   /**
    * Get the connected device name.
@@ -418,10 +375,6 @@ class BluetoothTerminal {
     return characteristic.writeValue(new TextEncoder().encode(data));
   }
   
-  _writeToCharacteristic2(characteristic, data) {
-	  let data1 = new Uint8Array([0x03]);
-    return characteristic.writeValue(data1);
-  }
   
   
   
