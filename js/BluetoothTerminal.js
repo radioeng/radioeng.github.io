@@ -178,10 +178,6 @@ class BluetoothTerminal {
 
     return promise;
   }
-  
-    msg_break() {
-		characteristic.writeValue(3);
-  }
    
 
   /**
