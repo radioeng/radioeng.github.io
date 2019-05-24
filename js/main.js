@@ -81,8 +81,7 @@ terminal.receive = function(data) {
 			document.getElementById('afc').checked = setting.afc; 
 		}
 	
-	} else {
-		logToTerminal(data, 'in'); }
+	}
 };
 
 // Override default log method to output messages to the terminal and console.
