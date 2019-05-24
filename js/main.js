@@ -129,7 +129,7 @@ settingButton.addEventListener('click', () => {
 		{
 			settingWindow.style.display = 'block';
 			send(':q');
-			setTimeout(function() {send('SETTING')}, 300);
+			setTimeout(function() {send('SETTING')}, 50);
 		}
 		else
 		{
