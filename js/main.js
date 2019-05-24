@@ -128,9 +128,8 @@ settingButton.addEventListener('click', () => {
 		if(settingWindow.style.display == 'none' || settingWindow.style.display == '')
 		{
 			settingWindow.style.display = 'block';
-			send(':q');
+			characteristic.writeValue(new Uint8Array([0x03]));
 			setTimeout(function() {send('SETTING')}, 100);
-			send('SETTING');
 		}
 		else
 		{
