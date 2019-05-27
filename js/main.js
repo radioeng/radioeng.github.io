@@ -43,8 +43,8 @@ terminal.receive = function(data) {
 	if(data.match(regex) != null) 
 	{
 		var obj = JSON.parse(data);
-		else if(obj.msg  != null) {
-			logToTerminal(obj.head + obj.msg, 'in'); }
+		if(obj.msg  != null) {
+			logToTerminal(obj.head + ': ' + obj.msg, 'in'); }
 		else if(obj.ping != null)
 		{
 			document.getElementById('ping-field').value = obj.ping; 
