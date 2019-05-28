@@ -56,8 +56,8 @@ terminal.receive = function(data) {
 			document.getElementById('freqTx').value = setting.ftx.toFixed(3);
 			document.getElementById('freqRx').value = setting.frx.toFixed(3);
 			document.getElementById('capacitance').value = setting.cap.toFixed(3);	
-			let sel  = document.getElementById('modulation');
-			let opts =  sel.options;
+
+			let opts =  document.getElementById('modulation').options;
 			for(let opt, j = 0; opt = opts[j]; j++) {
 				if(opt.value == setting.mod) {
 					opt.selected = true;
