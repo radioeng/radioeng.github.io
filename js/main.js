@@ -94,7 +94,7 @@ terminal.receive = function(data) {
 				
 				opts =  document.getElementById('powerout').options;
 				for(let opt, j = 0; opt = opts[j]; j++) {
-					if(opt.value == setting.pout) {
+					if(opt.value == setting.pwr) {
 						opt.selected = true;
 						break; 
 					}
