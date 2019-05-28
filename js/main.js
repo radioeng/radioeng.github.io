@@ -76,6 +76,16 @@ terminal.receive = function(data) {
 					}
 				}
 			document.getElementById('freqDev').value = setting.dev.toFixed(3);
+			
+			let selt  = document.getElementById('dataRate');
+			let optst =  selt.options;
+				for(let optt, jt = 0; optt = optst[jt]; jt++) {
+					if(optt.value == setting.dr) {
+						optt.selected = true;
+						break; 
+					}
+				}
+				
 			document.getElementById('dataRate').value = setting.dr.toFixed(3);
 			document.getElementById('crc').checked = setting.crc;
 			document.getElementById('modulationIndex').value = setting.hmod;
