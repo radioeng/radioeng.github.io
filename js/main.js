@@ -234,7 +234,7 @@ applyButton.addEventListener('click', function () {
 		//setTimeout(function() {send('set -dev ' + setting.dev)}, delay+=20);
 		set += ' -dev ' + setting.dev;
 	}
-	if(dr.validity.valid && dr.value != setting.dr)
+	if(dr.value != setting.dr)
 	{
 		setting.dr = dr.value;
 		//setTimeout(function() {send('set -dr ' + setting.dr)}, delay+=20);
