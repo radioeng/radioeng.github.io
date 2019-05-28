@@ -67,20 +67,20 @@ terminal.receive = function(data) {
 			document.getElementById('manchester').checked = setting.mch;
 			document.getElementById('preambleLength').value = setting.prl;
 			document.getElementById('preambleTrashold').value = setting.pth;
-			let selt  = document.getElementById('ifFilter');
-			let optst =  selt.options;
-				for(let optt, jt = 0; optt = optst[jt]; jt++) {
-					if(optt.value == setting.fil) {
-						optt.selected = true;
+
+			let opts =  document.getElementById('ifFilter').options;
+				for(let opt, j = 0; opt = opts[j]; j++) {
+					if(opt.value == setting.fil) {
+						opt.selected = true;
 						break; 
 					}
 				}
 			document.getElementById('freqDev').value = setting.dev.toFixed(3);
 			
-			let optst =  document.getElementById('dataRate').options;
-				for(let optt, jt = 0; optt = optst[jt]; jt++) {
-					if(optt.value == setting.dr) {
-						optt.selected = true;
+			let opts =  document.getElementById('dataRate').options;
+				for(let opt, j = 0; opt = opts[j]; j++) {
+					if(opt.value == setting.dr) {
+						opt.selected = true;
 						break; 
 					}
 				}
