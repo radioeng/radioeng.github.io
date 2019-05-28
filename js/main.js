@@ -92,6 +92,14 @@ terminal.receive = function(data) {
 					}
 				}
 				
+				opts =  document.getElementById('powerout').options;
+				for(let opt, j = 0; opt = opts[j]; j++) {
+					if(opt.value == setting.pout) {
+						opt.selected = true;
+						break; 
+					}
+				}
+				
 			document.getElementById('crc').checked = setting.crc;
 			document.getElementById('modulationIndex').value = setting.hmod;
 			document.getElementById('afc').checked = setting.afc; 
@@ -169,19 +177,20 @@ saveButton.addEventListener('click', function () {
 
 
 applyButton.addEventListener('click', function () {
-	let ftx = document.getElementById("freqTx");
-	let frx = document.getElementById("freqRx");
-	let cap = document.getElementById('capacitance');
-	let mod = document.getElementById('modulation');
-	let mch = document.getElementById('manchester');
-	let prl = document.getElementById('preambleLength');
-	let pth = document.getElementById('preambleTrashold');
-	let fil = document.getElementById('ifFilter');
-	let dev = document.getElementById('freqDev');
-	let dr  = document.getElementById('dataRate');
-	let crc = document.getElementById('crc');
+	let ftx  = document.getElementById("freqTx");
+	let frx  = document.getElementById("freqRx");
+	let cap  = document.getElementById('capacitance');
+	let pout = document.getElementById('powerout');
+	let mod  = document.getElementById('modulation');
+	let mch  = document.getElementById('manchester');
+	let prl  = document.getElementById('preambleLength');
+	let pth  = document.getElementById('preambleTrashold');
+	let fil  = document.getElementById('ifFilter');
+	let dev  = document.getElementById('freqDev');
+	let dr   = document.getElementById('dataRate');
+	let crc  = document.getElementById('crc');
 	let hmod = document.getElementById('modulationIndex');
-	let afc = document.getElementById('afc');
+	let afc  = document.getElementById('afc');
 		
 	var set = 'set';
 	
@@ -203,7 +212,12 @@ applyButton.addEventListener('click', function () {
 		//setTimeout(function() {send('set -cap ' + setting.cap)}, delay+=30);
 		set += ' -cap ' + setting.cap;
 	}
-	
+	if(pout.value != setting.pout)
+	{
+		setting.pout = pout.value;
+		//setTimeout(function() {send('set -fil ' + setting.fil)}, delay+=10);
+		set += ' -pwr ' + setting.pout;
+	}
 	if(mod.value != setting.mod)
 	{
 		setting.mod = mod.value;

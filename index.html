@@ -65,11 +65,26 @@
 					<input type="number" id="capacitance" class="input" min="1.8" max="12.595" step="0.001">
 					<span class="form__error">Valid range 1,8..12,595 pF</span>
 				</div>
-				<h3>Modulation Options</h3>
+			<h3>Output Power</h3>	
+				<div class="field">
+				<label for="modulation">Pout Si4432, dBm</label>
+					<select class="input" id="powerout">
+						<option value="-1">-1</option>
+						<option value="2">2</option>
+						<option value="5">5</option>
+						<option value="8">8</option>
+						<option value="11">11</option>
+						<option value="14">14</option>
+						<option value="17">17</option>
+						<option value="20">20</option>
+					</select>
+				</div>
+			
+			<h3>Modulation Options</h3>	
 				<div class="field">
 				<label for="modulation">Modulation type</label>
 					<select class="input" id="modulation">
-						<option value="GFSK" selected>GFSK</option>
+						<option value="GFSK">GFSK</option>
 						<option value="FSK">FSK</option>
 						<option value="OOK">OOK</option>
 						<option value="CW">CW</option>
