@@ -68,7 +68,7 @@ terminal.receive = function(data) {
 			document.getElementById('preambleLength').value = setting.prl;
 			document.getElementById('preambleTrashold').value = setting.pth;
 
-			let opts =  document.getElementById('ifFilter').options;
+			 opts =  document.getElementById('ifFilter').options;
 				for(let opt, j = 0; opt = opts[j]; j++) {
 					if(opt.value == setting.fil) {
 						opt.selected = true;
@@ -77,7 +77,7 @@ terminal.receive = function(data) {
 				}
 			document.getElementById('freqDev').value = setting.dev.toFixed(3);
 			
-			let opts =  document.getElementById('dataRate').options;
+			 opts =  document.getElementById('dataRate').options;
 				for(let opt, j = 0; opt = opts[j]; j++) {
 					if(opt.value == setting.dr) {
 						opt.selected = true;
