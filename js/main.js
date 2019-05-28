@@ -234,12 +234,7 @@ applyButton.addEventListener('click', function () {
 		//setTimeout(function() {send('set -fil ' + setting.fil)}, delay+=10);
 		set += ' -fil ' + setting.fil;
 	}
-	if(dev.value != setting.dev)
-	{
-		setting.dev = dev.value;
-		//setTimeout(function() {send('set -dev ' + setting.dev)}, delay+=20);
-		set += ' -dev ' + setting.dev;
-	}
+
 	if(dr.value != setting.dr)
 	{
 		setting.dr = dr.value;
