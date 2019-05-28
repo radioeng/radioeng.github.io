@@ -180,7 +180,7 @@ applyButton.addEventListener('click', function () {
 	let ftx  = document.getElementById("freqTx");
 	let frx  = document.getElementById("freqRx");
 	let cap  = document.getElementById('capacitance');
-	let pout = document.getElementById('powerout');
+	let pwr = document.getElementById('powerout');
 	let mod  = document.getElementById('modulation');
 	let mch  = document.getElementById('manchester');
 	let prl  = document.getElementById('preambleLength');
@@ -212,11 +212,11 @@ applyButton.addEventListener('click', function () {
 		//setTimeout(function() {send('set -cap ' + setting.cap)}, delay+=30);
 		set += ' -cap ' + setting.cap;
 	}
-	if(pout.value != setting.pout)
+	if(pwr.value != setting.pwr)
 	{
-		setting.pout = pout.value;
+		setting.pwr = pwr.value;
 		//setTimeout(function() {send('set -fil ' + setting.fil)}, delay+=10);
-		set += ' -pwr ' + setting.pout;
+		set += ' -pwr ' + setting.pwr;
 	}
 	if(mod.value != setting.mod)
 	{
