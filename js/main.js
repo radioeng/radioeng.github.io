@@ -75,7 +75,14 @@ terminal.receive = function(data) {
 						break; 
 					}
 				}
-			document.getElementById('freqDev').value = setting.dev.toFixed(3);
+			
+			opts =  document.getElementById('freqDev').options;
+				for(let opt, j = 0; opt = opts[j]; j++) {
+					if(opt.value == setting.dev) {
+						opt.selected = true;
+						break; 
+					}
+				}
 			
 			 opts =  document.getElementById('dataRate').options;
 				for(let opt, j = 0; opt = opts[j]; j++) {
@@ -85,7 +92,6 @@ terminal.receive = function(data) {
 					}
 				}
 				
-			document.getElementById('dataRate').value = setting.dr.toFixed(3);
 			document.getElementById('crc').checked = setting.crc;
 			document.getElementById('modulationIndex').value = setting.hmod;
 			document.getElementById('afc').checked = setting.afc; 
@@ -228,7 +234,7 @@ applyButton.addEventListener('click', function () {
 		//setTimeout(function() {send('set -fil ' + setting.fil)}, delay+=10);
 		set += ' -fil ' + setting.fil;
 	}
-	if(dev.validity.valid && dev.value != setting.dev)
+	if(dev.value != setting.dev)
 	{
 		setting.dev = dev.value;
 		//setTimeout(function() {send('set -dev ' + setting.dev)}, delay+=20);
