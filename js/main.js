@@ -48,6 +48,7 @@ terminal.receive = function(data) {
 		else if(obj.ping != null)
 		{
 			document.getElementById('ping-field').value = obj.ping; 
+			document.getElementById('rssi').value = obj.rssi;
 		}
 		else if(obj.ftx != null) 
 		{
