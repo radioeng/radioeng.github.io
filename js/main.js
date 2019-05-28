@@ -80,7 +80,7 @@ terminal.receive = function(data) {
 			let selt2  = document.getElementById('dataRate');
 			let optst2 =  selt2.options;
 				for(let optt2, jt2 = 0; optt2 = optst2[jt2]; jt2++) {
-					if(optt2.value == setting.dr) {
+					if(optt2.value == setting.dr.toFixed(2)) {
 						optt2.selected = true;
 						break; 
 					}
