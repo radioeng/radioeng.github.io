@@ -77,10 +77,10 @@ terminal.receive = function(data) {
 				}
 			document.getElementById('freqDev').value = setting.dev.toFixed(3);
 			
-			let optst2 =  document.getElementById('dataRate').options;
-				for(let optt2, jt2 = 0; optt2 = optst2[jt2]; jt2++) {
-					if(optt2.value == setting.dr) {
-						optt2.selected = true;
+			let optst =  document.getElementById('dataRate').options;
+				for(let optt, jt = 0; optt = optst[jt]; jt++) {
+					if(optt.value == setting.dr) {
+						optt.selected = true;
 						break; 
 					}
 				}
