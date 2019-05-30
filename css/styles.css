@@ -42,9 +42,8 @@ body {
     padding: 0 8px;
     user-select: none; }
   .toolbar button {
-    flex-shrink: 0; }
-    .toolbar button {
-      float: left; }
+    flex-shrink: 0;
+	float: left; }
 
 #window{
 	width: 300px;
