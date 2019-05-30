@@ -47,7 +47,7 @@ terminal.receive = function(data) {
 			logToTerminal(obj.head + ': ' + obj.msg, 'in'); }
 		else if(obj.bat != null) 
 		{
-			document.getElementById('Battery').innerHTML = obj.bat + '%';
+			document.getElementById('Battery').innerHTML = obj.bat/1.78 + '%';
 		}
 		else if(obj.ping != null)
 		{
