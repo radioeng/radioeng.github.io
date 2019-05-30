@@ -45,6 +45,10 @@ terminal.receive = function(data) {
 		var obj = JSON.parse(data);
 		if(obj.msg  != null) {
 			logToTerminal(obj.head + ': ' + obj.msg, 'in'); }
+		else if(obj.bat != null) 
+		{
+			document.getElementById('Battery').innerHTML = obj.bat;
+		}
 		else if(obj.ping != null)
 		{
 			document.getElementById('ping-field').value = obj.ping; 
